@@ -1,0 +1,2 @@
+class FoodStallCategoriesController < ApplicationController
+end
