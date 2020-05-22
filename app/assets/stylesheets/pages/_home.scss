@@ -7,3 +7,16 @@
   padding-top: 10px;
   justify-content: center;
 }
+.food-stall-card {
+  display: block;
+  width: 300px;
+  text-align: center;
+}
+.food-stall-card .food-stall-image {
+  width: 300px;
+  height: 250px;
+}
+.food-stall-card-info {
+  display: flex;
+  justify-content: space-between;
+}
