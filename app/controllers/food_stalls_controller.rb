@@ -7,6 +7,6 @@ class FoodStallsController < ApplicationController
   end
 
   def search_results
-
+    @search_results = FoodStall.search_by_food_type(params[:query])
   end
 end
