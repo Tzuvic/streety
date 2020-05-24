@@ -20,18 +20,21 @@ first_food_stall = FoodStall.create!(test_food_stall)
 
 puts "created #{first_food_stall}"
 
-
 puts "Creating food category..."
 test_food_category = { name: 'tacos', description: 'tortilla with toppings inside'}
 first_food_category = FoodCategory.create!(test_food_category)
 puts "created #{first_food_category}"
+
+puts "Creating Food Item..."
+test_food_item = { name: 'Al pastor', description: 'Meat off of the giant rotating piece of meat', food_category_id: FoodCategory.first.id, user: User.last }
+first_food_item = FoodItem.create!(test_food_item)
+puts "created #{first_food_item}"
+
+
 
 puts "Creating Food Stall Category..."
 test_food_stall_category = { name: 'Orinocos', food_stall_id: FoodStall.first.id , food_category_id: FoodCategory.first.id }
 first_food_stall_category = FoodStallCategory.create!(test_food_stall_category)
 puts "created #{first_food_stall_category}"
 
-puts "Creating Food Item..."
-test_food_item = { name: 'Al pastor', description: 'Meat off of the giant rotating piece of meat', food_category_id: FoodCategory.first.id, user: User.last }
-first_food_item = FoodItem.create!(test_food_item)
-puts "created #{first_food_item}"
+

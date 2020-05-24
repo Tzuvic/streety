@@ -9,4 +9,8 @@ class FoodStallsController < ApplicationController
   def search_results
     @search_results = FoodStall.search_by_food_type(params[:query])
   end
+
+  def menu
+    @food_stall = FoodStall.find(params[:id])
+  end
 end
