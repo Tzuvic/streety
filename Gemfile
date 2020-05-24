@@ -29,6 +29,10 @@ group :development, :test do
   gem 'dotenv-rails'
 end
 
+#VC
+  gem 'pg_search'
+
 #TZ
 gem 'cloudinary', '~> 1.12.0'
 gem 'carrierwave'
+
