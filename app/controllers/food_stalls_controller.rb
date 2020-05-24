@@ -3,6 +3,6 @@ class FoodStallsController < ApplicationController
   end
 
   def show
-
+    @food_stall = FoodStall.find(params[:id])
   end
 end
