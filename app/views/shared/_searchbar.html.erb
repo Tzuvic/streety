@@ -1,4 +1,14 @@
-<%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+<%= form_tag search_results_food_stalls_path, method: :get, class: "form-inline" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "What do you want to eat?"
+  %>
+  <%= submit_tag "Search", class: "btn mb-3", style: "background-color: #EB6043; color: white; justify-contents: space-around;" %>
+<% end %>
+
+
+<!-- <%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
 <%= f.input :address, input_html: {value: ""}, label: false, placeholder: 'Where will you eat?' %>
 <%= f.submit "Search", class: "btn mb-3", style: "background-color: #EB6043; color: white; justify-contents: space-around;" %>
-<% end %>
+<% end %> -->
