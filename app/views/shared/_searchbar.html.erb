@@ -1,0 +1,4 @@
+<%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+<%= f.input :address, input_html: {value: ""}, label: false, placeholder: 'Where will you eat?' %>
+<%= f.submit "Search", class: "btn mb-3", style: "background-color: #EB6043; color: white; justify-contents: space-around;" %>
+<% end %>
