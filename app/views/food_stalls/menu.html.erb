@@ -1,1 +1,6 @@
-<h1><%= @food_stall.food_stall_categories.first.name %></h1>
+<h1><%= @food_stall.name %></h1>
+<h2>Translated Menu</h2>
+
+<h3><%= @food_stall.food_stall_categories.first.food_category.name %></h3>
+
+<%= @food_stall.food_stall_categories.first.food_category.food_items.first.name %>
