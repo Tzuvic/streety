@@ -17,13 +17,7 @@ class FoodStallsController < ApplicationController
     end
   end
 
-  private
-
-  def food_stall_params
-    params.require(:food_stall).permit(:name, :description, :food_type, :schedule, :vegetarian, :address, :phone_number, :rating, photos: [])
-  end
-
-  def show
+   def show
     @food_stall = FoodStall.find(params[:id])
   end
 
@@ -35,3 +29,11 @@ class FoodStallsController < ApplicationController
     @food_stall = FoodStall.find(params[:id])
   end
 end
+
+
+  private
+
+  def food_stall_params
+    params.require(:food_stall).permit(:name, :description, :food_type, :schedule, :vegetarian, :address, :phone_number, :rating, photos: [])
+  end
+
