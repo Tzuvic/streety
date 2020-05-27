@@ -1,5 +1,9 @@
 class FoodStallsController < ApplicationController
 
+  def rod
+  end
+
+
   def new
     @food_stall = FoodStall.new
   end
