@@ -13,7 +13,10 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin-bottom: 15px;
 }
-
+.food-category a {
+  text-decoration: none !important;
+  color: white;
+}
 .cards {
   margin-top: 10px;
 }
