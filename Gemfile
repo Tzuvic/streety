@@ -28,3 +28,11 @@ group :development, :test do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
 end
+
+#VC
+  gem 'pg_search'
+
+#TZ
+gem 'cloudinary', '~> 1.12.0'
+gem 'carrierwave'
+

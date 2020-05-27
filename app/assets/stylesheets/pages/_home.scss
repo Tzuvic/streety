@@ -1,1 +1,147 @@
-// Specific CSS for your home-page
+//Home Page
+.header {
+  text-align: center;
+  padding-top: 20px;
+}
+.form-inline {
+  padding-top: 10px;
+  justify-content: center;
+}
+.card-category {
+  margin: 10px;
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+.card-category h1 {
+  padding-top: 20px;
+}
+.card-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%
+}
+.card-info-bottom {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 10px;
+}
+.card-info-bottom p {
+  font-size: 15px;
+  margin: 0;
+}
+.rating {
+  display: flex;
+}
+
+.rating img {
+  width: 35px;
+  height: 25px;
+}
+.rating p {
+  padding-left: 10px;
+  font-size: 15px;
+}
+.rating-section {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+  padding-top: 15px;
+}
+.card-info-top {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+.card-info-top img {
+  position: relative;
+  right: 10px;
+  top: 10px;
+  width: 30px;
+  height: 35px;
+}
+.btn-ghost {
+  color: white;
+  border: 1px solid white;
+  padding: 8px 24px;
+  border-radius: 50px;
+
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+#add-a-stall {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card-info-two {
+  border: 5px solid #A3432E;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  top:-40px;
+  left: -1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 74%;
+  height: 56%;
+}
+#bookmark {
+  width: 40px;
+  height: 40px;
+  top: 5px;
+  right: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+.card-info-two .rating-section {
+  padding: 0px;
+}
+
+// Footer CSS
+.footer {
+  background: #F4F4F4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 100px;
+  padding: 0px 50px;
+  color: #EB6043;
+}
+.footer-links {
+  display: flex;
+  align-items: center;
+}
+.footer-links i {
+  color: #EB6043;
+}
+.footer-links a {
+  color: black;
+  opacity: 0.15;
+  text-decoration: none;
+  font-size: 24px;
+  padding: 0px 10px;
+}
+.footer-links a:hover {
+  opacity: 1;
+}
+.footer .fa-heart {
+  color: #EB6043;
+}

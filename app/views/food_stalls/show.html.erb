@@ -1,0 +1,34 @@
+<div class="container show">
+  <div class="row">
+    <div class="col-sm-6 offset-sm-3">
+
+      <h1><%= @food_stall.name %> | <%= link_to @food_stall.food_type, food_stall_path %></h1>
+      <h2>
+        <% @food_stall.rating.times do %>
+        ⭐️
+        <% end %>
+      </h2>
+      <!-- <% @food_stall.rating.times do %> -->
+        <!-- <span>⭐️</span> -->
+      <!-- <% end %> -->
+      <%= link_to '🗺 Directions', food_stall_path %>
+      <h2>Photos will go here</h2>
+      <p><%= link_to 'Reviews' %> <%= link_to 'Translated Menu' %> <%= link_to 'Popular food' %></p>
+
+      <form action="" method="get" id="search_review">
+        <input type="text" name="search_review_params">
+        <input type="submit" value="Enter now" class="btn btn-primary">
+      </form>
+
+      <h2>Reviews will go here</h2>
+      <hr>
+      <%= link_to 'Review this food stall' %>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
