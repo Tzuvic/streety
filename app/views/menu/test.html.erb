@@ -1,0 +1,20 @@
+
+
+
+<!-- h3><%= @food_stall.food_stall_categories.first.food_category.name %></h3>
+
+<%= @food_stall.food_stall_categories.first.food_category.food_items.first.name %> -->
+
+
+<% @food_stall.food_items.each do |food_item| %>
+  <%= image_tag("https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80", size: "75x75") %>
+  <h2 style="margin-bottom: 0px;"><%= food_item.food_category.capitalize %></h2>
+  <p><%= food_item.description %></p>
+
+  <ul>
+  <% food_item.each do |item| %>
+    <li>- <%= item.name %>: <%= item.description %></li>
+  <% end %>
+  </ul>
+  <hr>
+<% end %>
