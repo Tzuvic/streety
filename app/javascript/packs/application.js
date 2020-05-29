@@ -4,6 +4,10 @@
 // that code so it'll be compiled.
 
 
+import { initStarRating } from '../plugins/init_star_rating';
+
+initStarRating();
+
 
 require("@rails/ujs").start()
 require("turbolinks").start()
@@ -22,6 +26,8 @@ document.addEventListener('turbolinks:load', () => {
 // import { initMapbox } from '../plugins/init_mapbox';
 
 //  initMapbox();
+
+
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
