@@ -1,4 +1,4 @@
 class Menu < ApplicationRecord
-  has_one :food_stall
-  has_many :food_items
+  belongs_to :food_stall
+  belongs_to :food_item
 end

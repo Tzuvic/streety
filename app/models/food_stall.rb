@@ -1,7 +1,7 @@
 class FoodStall < ApplicationRecord
   belongs_to :user
-  has_one :menu
-  has_many :food_items, through: :menu
+  has_many :menus
+  has_many :food_items, through: :menus
   has_many :reviews, dependent: :destroy
 
   include PgSearch::Model
