@@ -30,9 +30,22 @@ puts "created #{first_food_stall}"
 
 
 puts "Creating Menu..."
-test_food_stall_menu = { food_stall_id: FoodStall.last.id, food_item_id: FoodItem.last.id }
+test_food_stall_menu = { food_stall_id: FoodStall.first.id, food_item_id: FoodItem.last.id }
 first_food_stall_menu = Menu.create!(test_food_stall_menu)
 puts "created #{first_food_stall_menu}"
+
+
+puts "Creating food stall 2..."
+test_food_stall = { name: "Rod's Tacos", description: "You've got to try this place.  They have the best tacos in a of Mexico City", food_type: 'tacos', schedule: '24/7', vegetarian: false, address: 'San Isidro 164, Mexico City', phone_number: '1231231231', rating: 2, user: User.last }
+second_food_stall = FoodStall.create!(test_food_stall)
+
+puts "created #{second_food_stall}"
+
+
+puts "Creating Menu 2..."
+test_food_stall_menu = { food_stall_id: FoodStall.last.id, food_item_id: FoodItem.last.id }
+second_food_stall_menu = Menu.create!(test_food_stall_menu)
+puts "created #{second_food_stall_menu}"
 
 
 
