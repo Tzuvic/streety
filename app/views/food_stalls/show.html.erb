@@ -1,4 +1,4 @@
-<div class="container show">
+<div class="container show mt-3">
   <div class="row">
     <div class="col-sm-6 offset-sm-3">
 
@@ -15,14 +15,27 @@
       <h2>Photos will go here</h2>
       <p><%= link_to 'Reviews' %> <%= link_to 'Translated Menu', menu_food_stall_path %> <%= link_to 'Popular food' %></p>
 
+
+
+
+      <hr>
+      <h1>Reviews</h1>
+
       <form action="" method="get" id="search_review">
         <input type="text" name="search_review_params">
         <input type="submit" value="Enter now" class="btn btn-primary">
       </form>
 
-      <h2>Reviews will go here</h2>
-      <hr>
-      <%= link_to 'Review this food stall' %>
+      <% @food_stall.reviews.each do |review| %>
+        <p class="review"><%= review.user.email %></p>
+        <p class="review"><% review.rating.times do %>
+          ⭐️
+        <% end %></p>
+        <p class="review"><%= review.content %></p>
+        <hr>
+      <% end %>
+
+      <%= link_to 'Review this food stall', new_food_stall_review_path(@food_stall) %>
 
     </div>
 
