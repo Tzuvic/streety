@@ -1,0 +1,19 @@
+<div class="m-auto" style="width: 550px">
+
+<%= simple_form_for [@food_stall] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :food_type, collection: ["Tacos", "Tortas", "Soups", "Burritos", "Tamales", "Gorditas", "Quesadillas", "Enchiladas", "Chilaquiles", "Diserts", "Buffet", "Snacks"] %>
+  <%= f.input :schedule %>
+  <%= f.input :vegetarian, label: 'Vegetarian options'%>
+  <%= f.input :address %>
+  <%= f.input :phone_number %>
+  <%= f.input :rating %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+
+  <div class="mb-5">
+  <%= f.submit "Add your food stall", class: "btn btn-dark" %>
+  </div>
+<% end %>
+
+</div>
