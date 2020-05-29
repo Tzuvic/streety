@@ -4,9 +4,7 @@
 // that code so it'll be compiled.
 
 
-import { initStarRating } from '../plugins/init_star_rating';
 
-initStarRating();
 
 
 require("@rails/ujs").start()
@@ -16,16 +14,13 @@ require("channels")
 
 import 'bootstrap';
 
+import { initStarRating } from '../plugins/init_star_rating';
+
+initStarRating();
+
 // app/javascript/packs/application.js
 import { initMapbox } from '../plugins/init_mapbox';
-
-document.addEventListener('turbolinks:load', () => {
   initMapbox();
-})
-
-// import { initMapbox } from '../plugins/init_mapbox';
-
-//  initMapbox();
 
 
 
