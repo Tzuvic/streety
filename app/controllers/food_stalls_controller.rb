@@ -20,7 +20,7 @@ class FoodStallsController < ApplicationController
   private
 
   def food_stall_params
-    params.require(:food_stall).permit(:name, :description, :food_type, :schedule, :vegetarian, :address, :phone_number, :rating, photos: [])
+    params.require(:food_stall).permit(:name, :description, :food_type, :schedule, :vegetarian, :address, :phone_number, :rating, photo: [])
   end
 
   def show
