@@ -9,10 +9,15 @@ Rails.application.routes.draw do
     get :search_results
     end
 
+  end
+  get 'search', to: 'pages#search'
+
+
     member do
     get :menu
     end
 
 
   end
+
 end

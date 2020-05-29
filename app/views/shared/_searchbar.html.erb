@@ -1,10 +1,10 @@
 <%= form_tag search_results_food_stalls_path, method: :get, class: "form-inline" do %>
   <%= text_field_tag :query,
     params[:query],
-    class: "form-control",
-    placeholder: "What do you want to eat?"
+    class: "form-control", style: "width: 50%;, font-size: 12px;",
+    placeholder: "Search for food"
   %>
-  <%= submit_tag "Search", class: "btn mb-3", style: "background-color: #EB6043; color: white; justify-contents: space-around;" %>
+  <%= submit_tag "Search", class: "btn", style: "background-color: #EB6043; color: white; justify-contents: space-around;" %>
 <% end %>
 
 

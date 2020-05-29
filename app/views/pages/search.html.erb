@@ -1,0 +1,68 @@
+<div class="container">
+  <%= render 'shared/searchbar' %>
+<hr>
+  <div class="cards">
+
+    <div class="row">
+
+      <div class="col-sm-6">
+
+        <div class="food-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://pinchofyum.com/wp-content/uploads/Chicken-Tinga-Tacos-1-2.jpg)">
+         <%=  link_to "Tacos", search_results_food_stalls_path(:query => "tacos") %>
+        </div>
+
+      </div>
+
+      <div class="col-sm-6">
+
+        <div class="food-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.naturesyoke.com/wp-content/uploads/2016/10/mexican-torta-e1523296104751.jpg)">
+           <%=  link_to "Tortas", search_results_food_stalls_path(:query => "tortas") %>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col-sm-6">
+
+        <div class="food-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.threeolivesbranch.com/wp-content/uploads/2018/02/Enchiladas-Mexican-Street-Corn-1-768x1024.jpg)">
+           <%=  link_to "Enchiladas", search_results_food_stalls_path(:query => "enchiladas") %>
+        </div>
+
+      </div>
+
+      <div class="col-sm-6">
+
+        <div class="food-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.saveur.com/resizer/yXwiWtj9I5JVjTu3vjkTo32eU60=/760x760/arc-anglerfish-arc2-prod-bonnier.s3.amazonaws.com/public/DVUNFNUUVS2HKBBFHFBMVAUIZE.jpg)">
+           <%=  link_to "Tostadas", search_results_food_stalls_path(:query => "tostadas") %>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col-sm-6">
+
+        <div class="food-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F4538416.jpg&w=380&h=380&c=sc&poi=face&q=85)">
+          <%=  link_to "Quesadillas", search_results_food_stalls_path(:query => "quesadillas") %>
+        </div>
+
+      </div>
+
+      <div class="col-sm-6">
+
+        <div class="food-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.mexicanplease.com/wp-content/uploads/2017/05/beef-cheese-empanadas-after-cooking-taking-bite.jpg)">
+           <%=  link_to "Empanadas", search_results_food_stalls_path(:query => "empanadas") %>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
