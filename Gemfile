@@ -31,9 +31,10 @@ group :development, :test do
 end
 
 #VC
-  gem 'pg_search'
+gem 'pg_search'
 
 #TZ
 gem 'cloudinary', '~> 1.12.0'
 gem 'carrierwave'
+gem 'geocoder'
 

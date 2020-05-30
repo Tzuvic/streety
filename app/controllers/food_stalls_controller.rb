@@ -1,8 +1,5 @@
 class FoodStallsController < ApplicationController
 
-  def rod
-  end
-
 
   def new
     @food_stall = FoodStall.new
@@ -17,21 +14,34 @@ class FoodStallsController < ApplicationController
     end
   end
 
-  private
 
-  def food_stall_params
-    params.require(:food_stall).permit(:name, :description, :food_type, :schedule, :vegetarian, :address, :phone_number, :rating, photo: [])
-  end
-
-  def show
+ def show
     @food_stall = FoodStall.find(params[:id])
   end
 
   def search_results
     @search_results = FoodStall.search_by_food_type(params[:query])
+
+      @food_stalls = FoodStall.geocoded # returns flats with coordinates
+
+      @markers = @food_stalls.map do |food_stall|
+        {
+          lat: food_stall.latitude,
+          lng: food_stall.longitude
+        }
+      end
   end
 
   def menu
     @food_stall = FoodStall.find(params[:id])
   end
+
+  private
+
+  def food_stall_params
+    params.require(:food_stall).permit(:name, :description, :food_type, :schedule, :vegetarian, :address, :phone_number, :rating, photos: [])
+  end
+
+
 end
+
