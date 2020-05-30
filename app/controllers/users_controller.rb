@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @review = Review.new
   end
 
   def edit
@@ -11,7 +12,7 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update(user_params)
-      redirect_to root_path
+      redirect_to user_pat(@user)
     else
       render :edit
     end
@@ -20,7 +21,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:photo)
+    params.require(:user).permit(:photo, :first_name, :last_name, :current_city, :home_town)
   end
 
 end
