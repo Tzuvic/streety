@@ -5,9 +5,9 @@
 
     <div class="navbar-menus">
 
-<%= link_to search_path do %>
-   <%= image_tag "https://image.flaticon.com/icons/png/512/68/68213.png", class: "navbar-mg" %>
-<% end %>
+      <%= link_to search_path do %>
+         <%= image_tag "https://image.flaticon.com/icons/png/512/68/68213.png", class: "navbar-mg" %>
+      <% end %>
      <!--  <a href="https://streety.mx/search">
       <img src="https://image.flaticon.com/icons/png/512/68/68213.png" class="navbar-mg">
       </a> -->
@@ -26,7 +26,11 @@
           <%= link_to "Messages", "#", class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
+
+          <%= link_to current_user do %>
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% end %>
+
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Action", "#", class: "dropdown-item" %>
             <%= link_to "Another action", "#", class: "dropdown-item" %>

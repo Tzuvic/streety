@@ -19,5 +19,7 @@ Rails.application.routes.draw do
    end
 
     get 'search', to: 'pages#search'
+    get 'users/:id', to: 'users#show', as: 'user'
+    get 'users/:id/edit', to: 'users#edit', as: 'edit_user'
   end
 
