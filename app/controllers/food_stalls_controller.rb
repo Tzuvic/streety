@@ -29,13 +29,18 @@ class FoodStallsController < ApplicationController
       @markers = @food_stalls.map do |food_stall|
         {
           lat: food_stall.latitude,
-          lng: food_stall.longitude
+          lng: food_stall.longitude,
+          infoWindow: render_to_string(partial: "/food_stalls/map_box", locals: { food_stall: food_stall })
         }
       end
   end
 
   def menu
     @food_stall = FoodStall.find(params[:id])
+
+    @food_categories = @food_stall.food_items.map do |item|
+      item.food_category
+    end.uniq
   end
 
 

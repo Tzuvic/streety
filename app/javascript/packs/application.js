@@ -3,24 +3,21 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-
-
-
+import 'bootstrap';
+import { initMapbox } from '../plugins/init_mapbox';
+import { initStarRating } from '../plugins/init_star_rating';
 
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
-import 'bootstrap';
 
-import { initStarRating } from '../plugins/init_star_rating';
 
-initStarRating();
-
-// app/javascript/packs/application.js
-import { initMapbox } from '../plugins/init_mapbox';
+document.addEventListener('turbolinks:load', () => {
+  initStarRating();
   initMapbox();
+})
 
 
 
