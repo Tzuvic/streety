@@ -9,9 +9,8 @@ import { initStarRating } from '../plugins/init_star_rating';
 
 require("@rails/ujs").start()
 require("@rails/activestorage").start()
+require("turbolinks").start()
 require("channels")
-
-
 
 document.addEventListener('turbolinks:load', () => {
   initStarRating();
