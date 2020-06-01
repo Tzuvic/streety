@@ -19,6 +19,7 @@ class FoodStallsController < ApplicationController
 
    def show
     @food_stall = FoodStall.find(params[:id])
+    @directions_url = "https://www.google.com/maps/dir/?api=1&destination=#{@food_stall.latitude},#{@food_stall.longitude}"
   end
 
   def search_results
