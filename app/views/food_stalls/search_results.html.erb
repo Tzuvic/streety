@@ -16,7 +16,7 @@
       <div class="search-card">
           <div class="d-flex justify-content-between">
             <div>
-              <%= link_to result.name, food_stall_path(result) %> | <a href="">Tacos</a><br>
+              <%= link_to result.name, food_stall_path(result) %> | <a href=""><%= result.main_category %></a><br>
               <% result.rating.times do %>
                 ⭐️
               <% end %>
