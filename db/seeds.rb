@@ -24,7 +24,7 @@ puts "created #{first_food_item}"
 
 
 puts "Creating food stall..."
-test_food_stall = { name: 'Orinocos', description: "You've got to try this place.  They have the best tacos in a of Mexico City", food_type: 'tacos', schedule: '24/7', vegetarian: false, address: 'Av. Insurgentes Sur 253, 06700 Ciudad de México, CDMX', phone_number: '1231231231', rating: 5, user: User.last }
+test_food_stall = { name: 'Orinocos', description: "You've got to try this place.  They have the best tacos in a of Mexico City", food_type: 'tacos', schedule: '24/7', vegetarian: false, address: 'Av. Insurgentes Sur 253, 06700 Ciudad de México, CDMX', phone_number: '1231231231', rating: 5, user: User.last, main_category: 'tacos' }
 first_food_stall = FoodStall.create!(test_food_stall)
 
 puts "created #{first_food_stall}"
@@ -37,7 +37,7 @@ puts "created #{first_food_stall_menu}"
 
 
 puts "Creating food stall 2..."
-test_food_stall = { name: "Rod's Tacos", description: "You've got to try this place.  They have the best tacos in a of Mexico City", food_type: 'tacos', schedule: '24/7', vegetarian: false, address: 'Jalapa 117, 06700 Ciudad de Mexico, CDMX', phone_number: '1231231231', rating: 2, user: User.last }
+test_food_stall = { name: "Rod's Tacos", description: "You've got to try this place.  They have the best tacos in a of Mexico City", food_type: 'tacos', schedule: '24/7', vegetarian: false, address: 'Jalapa 117, 06700 Ciudad de Mexico, CDMX', phone_number: '1231231231', rating: 2, user: User.last, main_category: 'tacos' }
 second_food_stall = FoodStall.create!(test_food_stall)
 
 puts "created #{second_food_stall}"
