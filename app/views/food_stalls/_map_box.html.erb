@@ -1,1 +1,25 @@
-<h1><%= food_stall.name %></h1>
+<div class="map-info-box">
+  <div class="d-flex justify-content-between">
+      <div>
+        <strong><%= food_stall.name %></strong>
+      </div>
+      <div>
+        0.3 mi
+      </div>
+  </div>
+
+  <div>
+    <% food_stall.rating.times do %>
+      ⭐️
+    <% end %>
+    <% if food_stall.reviews.count == 1 %>
+      <span>1 review</span>
+    <% else %>
+      <span><%= food_stall.reviews.count %> reviews</span>
+    <% end %>
+  </div>
+
+  <div>
+    Tacos
+  </div>
+</div>
