@@ -4,8 +4,12 @@
 
       <h1><%= @food_stall.name %> | <%= link_to @food_stall.food_type, food_stall_path %></h1>
       <h2>
-        <% @food_stall.rating.times do %>
-        ⭐️
+        <% if @food_stall.rating == 0 %>
+          <span>No reviews yet</span>
+        <% else %>
+          <% @food_stall.rating.times do %>
+          ⭐️
+          <% end %>
         <% end %>
       </h2>
       <!-- <% @food_stall.rating.times do %> -->
@@ -13,21 +17,29 @@
       <!-- <% end %> -->
       <%= link_to '⮑ Get directions', @directions_url %>
       <h2>Photos will go here</h2>
-      <div class="d-flex justify-content-between"><%= link_to 'Reviews' %> <%= link_to 'Translated Menu', menu_food_stall_path %> <%= link_to 'Popular food' %></div
+      <div class=""><%= link_to 'Translated Menu', menu_food_stall_path, style:"margin-right: 16px"%> <%= link_to 'Popular food' %></div
       <hr>
 
 
 
       <hr>
       <h1>Reviews</h1>
+      <%= link_to 'Review this food stall', new_food_stall_review_path(@food_stall) %>
 
-      <form action="" method="get" id="search_review">
+      <form action="" method="get" id="search_review" class="mb-2">
         <input type="text" name="search_review_params">
-        <input type="submit" value="Enter now" class="btn btn-primary">
+        <input type="submit" value="Search reviews" class="btn btn-primary">
       </form>
 
       <% @food_stall.reviews.each do |review| %>
-        <p class="review"><%= review.user.email %></p>
+        <div class="d-flex">
+          <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" width="30px" height="30px" alt="" style="margin-right: 8px; border-radius: 15px;">
+          <div>
+            <p class="review"><%= review.user.email %></p>
+            <p style="margin-bottom: 0px;">Vouches: 4</p>
+          </div>
+        </div>
+
         <p class="review"><% review.rating.times do %>
           ⭐️
         <% end %></p>
@@ -35,7 +47,7 @@
         <hr>
       <% end %>
 
-      <%= link_to 'Review this food stall', new_food_stall_review_path(@food_stall) %>
+
 
     </div>
 
