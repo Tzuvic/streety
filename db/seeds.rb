@@ -48,6 +48,19 @@ test_food_stall_menu = { food_stall_id: FoodStall.last.id, food_item_id: FoodIte
 second_food_stall_menu = Menu.create!(test_food_stall_menu)
 puts "created #{second_food_stall_menu}"
 
+puts "Creating food stall 3..."
+test_food_stall = { name: "Victor's Tacos", description: "You've got to try this place.  They have the best tacos in a of Mexico City", food_type: 'tacos', schedule: '24/7', vegetarian: false, address: 'Av. Azcapotzalco 417, Mexico City', phone_number: '1231231231', rating: 2, user: User.last, main_category: 'tacos' }
+third_food_stall = FoodStall.create!(test_food_stall)
+
+puts "created #{third_food_stall}"
+
+
+puts "Creating Menu 3..."
+test_food_stall_menu = { food_stall_id: FoodStall.last.id, food_item_id: FoodItem.last.id }
+second_food_stall_menu = Menu.create!(test_food_stall_menu)
+puts "created #{second_food_stall_menu}"
+
+
 
 
 
