@@ -28,7 +28,13 @@ class FoodStallsController < ApplicationController
     else
       food_stalls = FoodStall.all
     end
-    @search_results = food_stalls.search_by_food_type(params[:query])
+
+    if params[:query] != ""
+      @search_results = food_stalls.search_by_food_type(params[:query])
+    else
+      @search_results = FoodStall.all
+    end
+
     @food_stalls = @search_results.geocoded # returns stalls with coordinates
     @markers = @food_stalls.map do |food_stall|
       {
