@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @review = Review.new
+    @vouch = Vouch.new
   end
 
   def edit
@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update(user_params)
-      redirect_to user_pat(@user)
+      redirect_to user_path(@user)
     else
       render :edit
     end

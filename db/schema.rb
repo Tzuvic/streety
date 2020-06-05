@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_30_200638) do
+ActiveRecord::Schema.define(version: 2020_06_03_023218) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -117,6 +117,16 @@ ActiveRecord::Schema.define(version: 2020_05_30_200638) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "vouches", force: :cascade do |t|
+    t.text "content"
+    t.bigint "voucher_id"
+    t.bigint "vouchee_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["vouchee_id"], name: "index_vouches_on_vouchee_id"
+    t.index ["voucher_id"], name: "index_vouches_on_voucher_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "favorites", "food_stalls"
   add_foreign_key "favorites", "users"
@@ -127,4 +137,6 @@ ActiveRecord::Schema.define(version: 2020_05_30_200638) do
   add_foreign_key "menus", "food_stalls"
   add_foreign_key "reviews", "food_stalls"
   add_foreign_key "reviews", "users"
+  add_foreign_key "vouches", "users", column: "vouchee_id"
+  add_foreign_key "vouches", "users", column: "voucher_id"
 end
