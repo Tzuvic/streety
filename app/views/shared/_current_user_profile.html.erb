@@ -1,0 +1,75 @@
+<div class="container">
+
+  <h4 style="padding-top: 10px;"> My Profile </h4>
+
+  <div class="profile" style="display: flex; justify-content: space-between; padding-top: 5px;">
+    <div style="height: 180px; width: 200; border: 1px solid black; display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
+      <%= cl_image_tag @user.photo.key, height: 150, width: 200, crop: :fill %>
+       <h5 style="padding-top: 3px;"><%= @user.first_name %></h5>
+    </div>
+<!--
+    <img src="https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png" alt="" style="width:200px; height: 150px;">
+ -->
+    <div class="profile-info" style="display: flex; flex-direction: column; justify-content: center;">
+      <p><%= @user.first_name %> <%= @user.last_name %></p>
+      <p>From: <%= @user.home_town %></p>
+      <p>Lives in: <%= @user.current_city %></p>
+    </div>
+    <div class="profile-description">
+      <p></p>
+    </div>
+  </div>
+  <div style="text-align: center; padding-top: 13px; font-size: 13px;">
+    <%= link_to 'Edit Profile', edit_user_path(@user) %>
+  </div>
+  <hr>
+
+    <div class="vouches" style="margin-top: 30px; width: 600px">
+      <h4> Vouches (<%= @user.received_vouches.count %>) </h3>
+
+      <div class="vouches">
+        <%= render 'shared/vouches' %>
+      </div>
+
+    </div>
+
+  <!-- <div class="Vouches" style="padding-top: 10px;">
+    <div class="vouch" style="display: flex; padding-top: 10px;">
+      <img src="https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png" alt="" style="width: 40px; height: 30px;">
+      <p style="padding-left: 20px;"><strong>Victor:</strong> This is my vouch</p>
+    </div>
+    <div class="vouch" style="display: flex;">
+      <img src="https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png" alt="" style="width: 40px; height: 30px;">
+      <p style="padding-left: 20px;"><strong>Rod:</strong> This is my vouch</p>
+    </div>
+    <div class="vouch" style="display: flex;">
+      <img src="https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png" alt="" style="width: 40px; height: 30px;">
+      <p style="padding-left: 20px;"><strong>Random_guy:</strong> Yeeeee haaaaw - I like dat dem der tacos </p>
+    </div>
+  </div>
+ -->
+  <a href="#"><p style="text-align: center; font-size: 13px;">See All</p></a>
+  <hr>
+
+
+    <h4>Recommendations (2)</h4>
+    <div class="recommendations" style="padding-top: 10px;">
+        <div class="recommendation">
+          <img src="https://www.dinneratthezoo.com/wp-content/uploads/2018/05/ground-beef-tacos-2.jpg" />
+          <div class="card-product-infos">
+            <h2>El Progresso</h2>
+            <p>⭐️⭐️⭐️⭐️⭐️(10 Reviews)</p>
+          </div>
+        </div>
+        <div class="recommendation">
+          <img src="https://img.chilango.com/2017/10/tacos-orinoco.jpg" />
+          <div class="card-product-infos">
+            <h2>Orinocos</h2>
+            <p>⭐️⭐️⭐️⭐️⭐️(15 Reviews)</p>
+        </div>
+      </div>
+    </div>
+    <a href="#"><p style="text-align: center; font-size: 13px; padding-top: 20px;">See All</p></a>
+    <hr>
+  </div>
+

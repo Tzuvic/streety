@@ -1,0 +1,12 @@
+<div class="container">
+
+      <%= simple_form_for [@user] do |f| %>
+        <%= f.input :first_name, placeholder: 'First Name' %>
+        <%= f.input :last_name, placeholder: 'Last Name' %>
+        <%= f.input :photo, label: 'Profile Pic',  as: :file %>
+        <%= f.input :home_town, placeholder: 'Where were you born?' %>
+        <%= f.input :current_city, placeholder: "Where do you live now?" %>
+        <%= f.submit "Submit", class: "btn btn-dark" %>
+      <% end %>
+
+</div>

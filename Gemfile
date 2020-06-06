@@ -37,4 +37,4 @@ end
 #TZ
 gem 'cloudinary', '~> 1.12.0'
 gem 'carrierwave'
-
+gem 'actionview'

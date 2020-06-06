@@ -27,6 +27,10 @@ class ReviewsController < ApplicationController
 
   private
 
+  def find_user
+    @user = User.find(params[:user_id])
+  end
+
   def find_food_stall
     @food_stall = FoodStall.find(params[:food_stall_id])
   end
