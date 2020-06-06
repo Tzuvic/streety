@@ -1,13 +1,14 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
+  <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag "https://lewagon.s3.amazonaws.com/StreetyLargeTrimmed.png" %>
     <% end %>
 
     <div class="navbar-menus">
 
-      <%= link_to search_path do %>
-         <%= image_tag "https://image.flaticon.com/icons/png/512/68/68213.png", class: "navbar-mg" %>
-      <% end %>
+<%= link_to search_path do %>
+   <%= image_tag "https://image.flaticon.com/icons/png/512/68/68213.png", class: "navbar-mg", data: { turbolinks: false } %>
+<% end %>
+
      <!--  <a href="https://streety.mx/search">
       <img src="https://image.flaticon.com/icons/png/512/68/68213.png" class="navbar-mg">
       </a> -->

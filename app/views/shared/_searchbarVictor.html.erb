@@ -1,0 +1,25 @@
+
+      <%= form_tag search_results_food_stalls_path, method: :get, id: "search_form"  do %>
+
+          <%= text_field_tag :location,
+            params[:location],
+            class: "form-control",
+            id: "location-placeholder",
+            placeholder: "location",
+            style: "width: 250px; display: inline;"
+          %>
+
+          <i class="far fa-compass" id="current-location"></i>
+
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control mt-1",
+          placeholder: "Type of food",
+          style: "width: 250px;",
+          id: "hello"
+        %>
+
+        <%= submit_tag "Search", class: "btn mt-1", style: "background-color: #EB6043; color: white; justify-contents: space-around; width: 100px;" %>
+      <% end %>
+
+      <p id="demo"></p>
