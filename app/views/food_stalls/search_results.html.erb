@@ -11,6 +11,7 @@
            data-markers="<%= @markers.to_json %>"
            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
+      <% distance_value = 0 %>
       <% @search_results.each do |result| %>
 
       <div class="search-card">
@@ -27,17 +28,13 @@
                 <span><%= result.reviews.count %> reviews</span>
               <% end %>
             </div>
-            <p>0.3 mi</p>
+            <p><%= @distances_array[distance_value] %> km</p>
+            <% distance_value += 1 %>
           </div>
       </div>
       <% end %>
-
-
-
     </div>
-
   </div>
-
 </div>
 
 
