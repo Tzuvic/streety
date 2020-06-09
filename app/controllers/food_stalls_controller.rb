@@ -71,6 +71,10 @@ class FoodStallsController < ApplicationController
     end.uniq
   end
 
+  def popular_foods
+    @food_stall = FoodStall.find(params[:id])
+  end
+
   private
 
   def food_stall_params
