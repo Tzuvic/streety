@@ -21,10 +21,12 @@ class FoodStallsController < ApplicationController
   end
 
   def search_results
-    @user = current_user
-    @user.update(eval(params[:location2])) if params[:location2]
-    if params[:location] != ""
-      food_stalls = FoodStall.near(params[:location], 10)
+    if params[:location2].present?
+      current_user.update(eval(params[:location2]))
+      user_location = [current_user.latitude, current_user.longitude]
+      food_stalls = FoodStall.near(user_location, 7)
+    elsif params[:location] != ""
+      food_stalls = FoodStall.near(params[:location], 7)
     elsif current_user.latitude.present? && current_user.longitude.present?
       user_location = [current_user.latitude, current_user.longitude]
       food_stalls = FoodStall.near(user_location, 10)
@@ -35,7 +37,7 @@ class FoodStallsController < ApplicationController
     if params[:query] != ""
       @search_results = food_stalls.search_by_food_type(params[:query])
     else
-      @search_results = FoodStall.all
+      @search_results = food_stalls
     end
 
     @food_stalls = @search_results.geocoded # returns stalls with coordinates

@@ -4,6 +4,7 @@
       <h1>Search results for <%= params[:query]%></h1>
       <a href="#">Mexico City</a> > <a href="#">Tacos</a>
 
+      <% if @search_results.present? %>
       <div
            class="mb-3"
            id="map"
@@ -33,9 +34,14 @@
           </div>
       </div>
       <% end %>
+      <% else %>
+      <h1>No results found</h1>
+      <% end %>
     </div>
   </div>
 </div>
+
+<%= javascript_pack_tag 'mapbox' %>
 
 
 

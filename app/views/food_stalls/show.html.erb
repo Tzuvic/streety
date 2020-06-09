@@ -24,7 +24,7 @@
 
       <hr>
       <h1>Reviews</h1>
-      <%= link_to 'Review this food stall', new_food_stall_review_path(@food_stall) %>
+      <%= link_to 'Review this food stall', new_food_stall_review_path(@food_stall), data: { turbolinks: false } %>
 
       <form action="" method="get" id="search_review" class="mb-2">
         <input type="text" name="search_review_params">
