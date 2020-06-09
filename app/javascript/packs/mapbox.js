@@ -1,6 +1,12 @@
 // app/javascript/plugins/init_mapbox.js
 import mapboxgl from 'mapbox-gl';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+import 'bootstrap';
+
+require("@rails/ujs").start()
+require("@rails/activestorage").start()
+require("turbolinks").start()
+require("channels")
 
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
@@ -56,7 +62,6 @@ const initMapbox = () => {
   //   });
   // }
 
-
-export { initMapbox };
-
-
+document.addEventListener('turbolinks:load', () => {
+  initMapbox();
+})

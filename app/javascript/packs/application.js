@@ -3,23 +3,6 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-import 'bootstrap';
-import { initMapbox } from '../plugins/init_mapbox';
-import { initStarRating } from '../plugins/init_star_rating';
-
-require("@rails/ujs").start()
-require("@rails/activestorage").start()
-require("turbolinks").start()
-require("channels")
-
-document.addEventListener('turbolinks:load', () => {
-  initStarRating();
-  initMapbox();
-})
-
-
-
-
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
