@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
     member do
     get :menu
+    get :popular_foods
     end
 
    end
