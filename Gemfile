@@ -32,7 +32,6 @@ end
 #VC
   gem 'pg_search'
   gem 'geocoder'
-  gem 'dotenv-rails', groups: [:development, :test]
 
 #TZ
 gem 'cloudinary', '~> 1.12.0'

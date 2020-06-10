@@ -4,8 +4,12 @@
 
   <div class="profile" style="display: flex; justify-content: space-between; padding-top: 5px;">
     <div style="height: 180px; width: 200; border: 1px solid black; display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
-      <%= cl_image_tag @user.photo.key, height: 150, width: 200, crop: :fill %>
-       <h5 style="padding-top: 3px;"><%= @user.first_name %></h5>
+      <% if current_user.photo.attached? %>
+        <%= cl_image_tag @user.photo.key, height: 150, width: 200, crop: :fill %>
+         <h5 style="padding-top: 3px;"><%= @user.first_name %></h5>
+      <% else %>
+        <%= image_tag "https://res.cloudinary.com/vc334/image/upload/v1589058566/ldy28x5xt9skq4f2gdznnrs8p490.png", height: 150, width: 200, crop: :fill %>
+      <% end %>
     </div>
 <!--
     <img src="https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png" alt="" style="width:200px; height: 150px;">
