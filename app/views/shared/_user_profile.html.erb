@@ -1,0 +1,70 @@
+<div class="buttons">
+
+  <a class="btn btn-gradient" href="#">Tip <%= @user.first_name %></a>
+
+</div>
+<div class="container">
+
+ <h4 style="padding-top: 10px;"> My Profile </h4>
+
+  <div class="profile" style="display: flex; justify-content: space-between; padding-top: 5px;">
+    <div style="height: 180px; width: 200; border: 1px solid black; display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
+
+<img src="https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png" alt="" style="width:200px; height: 150px;">
+       <h5 style="padding-top: 3px;"><%= @user.first_name %></h5>
+    </div>
+<!--
+    <img src="https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png" alt="" style="width:200px; height: 150px;">
+ -->
+    <div class="profile-info" style="display: flex; flex-direction: column; justify-content: center;">
+      <p><%= @user.first_name %> <%= @user.last_name %></p>
+      <p>From: <%= @user.home_town %></p>
+      <p>Lives in: <%= @user.current_city %></p>
+    </div>
+    <div class="profile-description">
+      <p></p>
+    </div>
+  </div>
+  <hr>
+     <div class="vouches" style="margin-top: 30px; width: 600px">
+    <h4> Vouches (<%= @user.received_vouches.count %>) </h3>
+
+      <%= simple_form_for([ @user, @vouch ] ) do |f| %>
+        <%= f.input :content, as: :text, placeholder: "Add your vouch", label: false %>
+        <%= f.button :submit, 'Vouch', :class => 'btn-primary search-button mb-5' %>
+      <% end %>
+
+      <% if @user.received_vouches.blank? %>
+        Be the first to vouch for <%= @user.first_name %>
+      <% else %>
+        <div class="vouches">
+          <%= render 'shared/vouches' %>
+        </div>
+      <% end %>
+    </div>
+
+  <a href="#"><p style="text-align: center; font-size: 13px;">See All</p></a>
+  <hr>
+
+
+    <h4>Recommendations (2)</h4>
+    <div class="recommendations" style="padding-top: 10px;">
+        <div class="recommendation">
+          <img src="https://www.dinneratthezoo.com/wp-content/uploads/2018/05/ground-beef-tacos-2.jpg" />
+          <div class="card-product-infos">
+            <h2>El Progresso</h2>
+            <p>⭐️⭐️⭐️⭐️⭐️(10 Reviews)</p>
+          </div>
+        </div>
+        <div class="recommendation">
+          <img src="https://img.chilango.com/2017/10/tacos-orinoco.jpg" />
+          <div class="card-product-infos">
+            <h2>Orinocos</h2>
+            <p>⭐️⭐️⭐️⭐️⭐️(15 Reviews)</p>
+        </div>
+      </div>
+    </div>
+    <a href="#"><p style="text-align: center; font-size: 13px; padding-top: 20px;">See All</p></a>
+    <hr>
+  </div>
+

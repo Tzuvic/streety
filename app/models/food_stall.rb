@@ -1,4 +1,5 @@
 class FoodStall < ApplicationRecord
+  serialize :popular_foods
   belongs_to :user
   has_many_attached :photos
   geocoded_by :address

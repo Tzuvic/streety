@@ -11,6 +11,13 @@ class ReviewsController < ApplicationController
     @review.user = current_user
     @review.food_stall = @food_stall
     if @review.save
+      reviews = []
+      @food_stall.reviews.each do |review|
+        reviews << review.rating
+      end
+      new_average = reviews.sum / reviews.count
+      @food_stall.rating = new_average
+      @food_stall.save
       redirect_to food_stall_path(@food_stall)
     else
       flash[:alert] = "Something went terribly wrong."
@@ -19,6 +26,10 @@ class ReviewsController < ApplicationController
   end
 
   private
+
+  def find_user
+    @user = User.find(params[:user_id])
+  end
 
   def find_food_stall
     @food_stall = FoodStall.find(params[:food_stall_id])

@@ -1,0 +1,12 @@
+<%= simple_form_for([ @user, @review ], remote: true ) do |f| %>
+        <%= f.input :content, as: :text, placeholder: "Vouch for <%= @user.first_name %>", label: false %>
+        <%= f.button :submit, 'Add Vouch', :class => 'btn-primary search-button mb-5' %>
+      <% end %>
+
+      <% if @user.reviews.blank? %>
+        Be the first to vouch for <%= @user.first_name %>
+      <% else %>
+        <div class="vouches">
+          <%= render 'shared/vouches' %>
+        </div>
+      <% end %>

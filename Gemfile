@@ -36,5 +36,9 @@ gem 'pg_search'
 #TZ
 gem 'cloudinary', '~> 1.12.0'
 gem 'carrierwave'
+<<<<<<< HEAD
 gem 'geocoder'
 
+=======
+gem 'actionview'
+>>>>>>> c8140ed90e0c0e5504612887073aed9f4c2d57bb

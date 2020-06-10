@@ -1,20 +1,25 @@
 <div class="container menu pt-3">
   <div class="row">
     <div class="col-sm-6 offset-sm-3">
-<h2 class="title"><%= @food_stall.name %></h2>
-<h2>Translated Menu</h2>
+      <h2 class="title"><%= @food_stall.name %></h2>
+      <h2>Translated Menu</h2>
 
-<% @food_stall.food_items.each do |food_item| %>
-  <p style="font-weight: bold; margin: 0px; padding: 0px;"><%= food_item.name %></p>
-  <p><%= food_item.description %></p>
+      <% @food_categories.each do |food_category| %>
 
+        <h3><%= food_category.name %></h3>
+        <p><%= food_category.description %></p>
 
-<% end %>
+        <% @food_stall.food_items.each do |food_item| %>
+          <% if food_item.food_category == food_category %>
+            <p style="font-weight: bold; margin: 0px; padding: 0px;"><%= food_item.name %></p>
+            <p><%= food_item.description %></p>
+          <% end %>
+        <% end %>
+
+      <% end %>
 
     </div>
-
   </div>
-
 </div>
 
 

@@ -1,6 +1,21 @@
 <div class="container">
-  <%= render 'shared/searchbar' %>
-<hr>
+
+
+<div class="row mt-3">
+  <div class="col-sm-4 offset-sm-4">
+      <%= render 'shared/searchbarVictor2' %>
+    <hr>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
   <div class="cards">
 
     <div class="row">
@@ -66,3 +81,7 @@
   </div>
 
 </div>
+
+<%= content_for(:maps) do %>
+<%= javascript_pack_tag 'location' %>
+<% end %>
