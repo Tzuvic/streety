@@ -15,6 +15,7 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'dotenv-rails', groups: [:development, :test]
 
 group :development do
   gem 'web-console', '>= 3.3.0'
@@ -33,7 +34,9 @@ end
   gem 'pg_search'
   gem 'geocoder'
 
+
 #TZ
 gem 'cloudinary', '~> 1.12.0'
 gem 'carrierwave'
+gem 'geocoder'
 gem 'actionview'

@@ -12,15 +12,17 @@
           <% end %>
         <% end %>
       </h2>
-      <!-- <% @food_stall.rating.times do %> -->
-        <!-- <span>⭐️</span> -->
-      <!-- <% end %> -->
+      <% @food_stall.photos.each do |photo| %>
+              <%= cl_image_tag photo.key %>
+          <% end %>
+
+      <%= link_to '🗺 Directions', food_stall_path %>
+
+      <p><%= link_to 'Reviews' %> <%= link_to 'Translated Menu', menu_food_stall_path %> <%= link_to 'Popular food' %></p>
       <%= link_to '⮑ Get directions', @directions_url %>
       <h2>Photos will go here</h2>
-      <div class=""><%= link_to 'Translated Menu', menu_food_stall_path, style:"margin-right: 16px"%> <%= link_to 'Popular food',  popular_foods_food_stall_path(@food_stall) %></div
+      <div class=""><%= link_to 'Translated Menu', menu_food_stall_path, style:"margin-right: 16px"%> <%= link_to 'Popular food',  popular_foods_food_stall_path(@food_stall) %></div>
       <hr>
-
-
 
       <hr>
       <h1>Reviews</h1>
