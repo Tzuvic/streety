@@ -11,8 +11,19 @@
       <!-- <% @food_stall.rating.times do %> -->
         <!-- <span>⭐️</span> -->
       <!-- <% end %> -->
+
+      <!--
+      <% @food_stall.photos.each do |photo| %>
+      <%= image_tag("https://res.cloudinary.com/rodrigosan86/image/upload/#{@food_stall.photos.first.key}.jpg") %>
+      <% end %>
+      -->
+
+      <% @food_stall.photos.each do |photo| %>
+              <%= cl_image_tag photo.key %>
+          <% end %>
+
       <%= link_to '🗺 Directions', food_stall_path %>
-      <h2>Photos will go here</h2>
+
       <p><%= link_to 'Reviews' %> <%= link_to 'Translated Menu', menu_food_stall_path %> <%= link_to 'Popular food' %></p>
 
 
