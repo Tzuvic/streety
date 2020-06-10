@@ -52,17 +52,20 @@ class FoodStallsController < ApplicationController
     origin = current_user.longitude.to_s + ',' + current_user.latitude.to_s
     @distances_array = []
     @time_array = []
-    @search_results.each do |result|
-      destination = result.longitude.to_s + ',' + result.latitude.to_s
-      distance_url = "https://api.mapbox.com/directions-matrix/v1/mapbox/walking/#{origin};#{destination}?annotations=distance,duration&access_token=pk.eyJ1IjoidmMzMzQiLCJhIjoiY2thcjMwdDFyMGhlbTJxcWwxZXF5NmxuNCJ9.87wTyeacBch9OT448M8qEQ"
-      distance_serialized = open(distance_url).read
-      distance_object = JSON.parse(distance_serialized)
-      @distances_array << distance_object['distances'][0][1] # walking distance
-      @time_array << time_walking_seconds = distance_object["durations"][0][1] # walking time
-    end
 
-    @distances_array.map! do |distance|
-      (distance / 1000).round(1)
+    if current_user.latitude.present? && current_user.longitude.present?
+      @search_results.each do |result|
+        destination = result.longitude.to_s + ',' + result.latitude.to_s
+        distance_url = "https://api.mapbox.com/directions-matrix/v1/mapbox/walking/#{origin};#{destination}?annotations=distance,duration&access_token=#{ENV['MAPBOX_API_KEY']}"
+        distance_serialized = open(distance_url).read
+        distance_object = JSON.parse(distance_serialized)
+        @distances_array << distance_object['distances'][0][1] # walking distance
+        @time_array << time_walking_seconds = distance_object["durations"][0][1] # walking time
+      end
+
+      @distances_array.map! do |distance|
+        (distance / 1000).round(1)
+      end
     end
   end
 
