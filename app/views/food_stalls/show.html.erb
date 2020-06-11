@@ -16,6 +16,9 @@
         <!-- <span>⭐️</span> -->
       <!-- <% end %> -->
       <%= link_to '⮑ Get directions', @directions_url %> <br>
+      <h2></h2><h1></h1>
+
+<% if @food_stall.photos.attached? %>
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="false">
 
         <div class="carousel-inner rounded mb-3" style="width:100%; height: 300px !important;">
@@ -40,7 +43,7 @@
           <span class="sr-only">Next</span>
         </a>
       </div>
-
+<% end %>
       <div class=""><%= link_to 'Translated Menu', menu_food_stall_path, style:"margin-right: 16px"%> <%= link_to 'Popular food',  popular_foods_food_stall_path(@food_stall) %></div>
       <hr>
       <h1>Reviews</h1>
