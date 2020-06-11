@@ -6,6 +6,7 @@ class FoodStall < ApplicationRecord
   has_many :menus
   has_many :food_items, through: :menus
   has_many :reviews, dependent: :destroy
+  has_many_attached :photos
 
 
   include PgSearch::Model

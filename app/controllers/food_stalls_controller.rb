@@ -8,6 +8,7 @@ class FoodStallsController < ApplicationController
 
   def create
     @food_stall = FoodStall.new(food_stall_params)
+    @food_stall.user = current_user
     if @food_stall.save
       redirect_to food_stall_path(@food_stall)
     else
