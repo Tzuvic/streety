@@ -65,10 +65,28 @@
 
       <% @food_stall.reviews.each do |review| %>
         <div class="d-flex">
-          <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" width="30px" height="30px" alt="" style="margin-right: 8px; border-radius: 15px;">
+
+
+<% if current_user.photo.attached? %>
+            <%= cl_image_tag current_user.photo.key, gravity: :face, crop: :thumb, height: 400, width: 400, class: "avatar dropdown-toggle", id: "navbarDropdown", style:"margin-right: 8px;", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+         <% else %>
+         <%= image_tag "https://res.cloudinary.com/vc334/image/upload/v1589058566/ldy28x5xt9skq4f2gdznnrs8p490.png", class: "avatar dropdown-toggle", id: "navbarDropdown", style:"margin-right: 8px;", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% end %>
+
+
+
+
+
+
+          <!-- <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" width="30px" height="30px" alt="" style="margin-right: 8px; border-radius: 15px;"> -->
           <div>
-            <p class="review"><%= review.user.email %></p>
+            <% if review.user.first_name.present? && review.user.last_name.present? %>
+              <p class="review"><%= review.user.first_name.capitalize %> <%= review.user.last_name.first.capitalize %>.</p>
+            <% else %>
+            <p class="review">Anonymous user</p>
+            <% end %>
             <p style="margin-bottom: 0px;">Vouches: 4</p>
+
           </div>
         </div>
 
