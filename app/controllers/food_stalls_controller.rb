@@ -25,9 +25,9 @@ class FoodStallsController < ApplicationController
     if params[:location2].present?
       current_user.update(eval(params[:location2]))
       user_location = [current_user.latitude, current_user.longitude]
-      food_stalls = FoodStall.near(user_location, 7)
+      food_stalls = FoodStall.near(user_location, 10)
     elsif params[:location] != ""
-      food_stalls = FoodStall.near(params[:location], 7)
+      food_stalls = FoodStall.near(params[:location], 10)
     elsif current_user.latitude.present? && current_user.longitude.present?
       user_location = [current_user.latitude, current_user.longitude]
       food_stalls = FoodStall.near(user_location, 10)
@@ -75,6 +75,10 @@ class FoodStallsController < ApplicationController
     @food_categories = @food_stall.food_items.map do |item|
       item.food_category
     end.uniq
+  end
+
+  def add_menu
+    @food_stall = FoodStall.find(params[:id])
   end
 
   def popular_foods

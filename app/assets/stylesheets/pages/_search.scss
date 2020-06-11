@@ -20,3 +20,14 @@
 .cards {
   margin-top: 10px;
 }
+
+
+// .form-control::-moz-placeholder {
+//   color: red;
+// }
+// .form-control:-ms-input-placeholder {
+//   color: red;
+// }
+.placeholder-color::-webkit-input-placeholder {
+  color: #2e89c5;
+}

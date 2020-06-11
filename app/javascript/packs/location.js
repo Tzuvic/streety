@@ -5,6 +5,7 @@ const searchButton = document.querySelector("#search-submit");
 
   locationVictor.addEventListener("click", () => {
   locationPlaceholder.placeholder = "current location";
+  locationPlaceholder.classList.add('placeholder-color');
   searchButton.disabled = true;
   getLocation();
 
@@ -18,8 +19,9 @@ const searchButton = document.querySelector("#search-submit");
   }
 
   function showPosition(position) {
-    x.innerHTML = "{ latitude: " + position.coords.latitude +
-    ", longitude: " + position.coords.longitude + " }";
+    // x.innerHTML = "{ latitude: " + position.coords.latitude +
+    // ", longitude: " + position.coords.longitude + " }";
+    // uncomment to show user coordinates
 
     searchForm.insertAdjacentHTML('afterend', `<input type="hidden" name="location2" value="{ latitude: ${position.coords.latitude}, longitude: ${position.coords.longitude} }">` );
 

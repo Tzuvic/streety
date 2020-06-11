@@ -1,0 +1,14 @@
+<div class="container show mt-3">
+  <div class="row">
+    <div class="col-sm-6 offset-sm-3">
+      <%= simple_form_for [@food_stall, @menu] do |f| %>
+      <%= f.label @food_stall.food_type%>
+      <%= f.association :food_item, collection: FoodItem.where(food_category_id: 62) %>
+      <%= f.button :submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
