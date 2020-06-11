@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-sm-6 offset-sm-3">
 
-      <h1><%= @food_stall.name %> | <%= link_to @food_stall.food_type, food_stall_path %> [<%= link_to 'Edit', edit_food_stall_path(@food_stall) %>]</h1>
+      <h1><span style="font-weight: bold;"><%= @food_stall.name %></span> | <%= link_to @food_stall.food_type, food_stall_path %> [<%= link_to 'Edit', edit_food_stall_path(@food_stall) %>]</h1>
       <h2>
         <% if @food_stall.rating == 0 %>
           <span>No ratings yet</span>

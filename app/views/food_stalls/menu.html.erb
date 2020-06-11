@@ -1,8 +1,7 @@
 <div class="container menu pt-3">
   <div class="row">
     <div class="col-sm-6 offset-sm-3">
-      <h2 class="title"><%= @food_stall.name %></h2>
-      <h2>Translated Menu</h2>
+      <h2 class="title" style="font-size: 20px;">Translated Menu - <%= @food_stall.name %></h2>
 
       <% @food_categories.each do |food_category| %>
         <h3><%= food_category.name %></h3>

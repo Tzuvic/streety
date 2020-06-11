@@ -20,10 +20,18 @@
       <% distance_value = 0 %>
       <% @search_results.each do |result| %>
 
-      <div class="search-card">
+      <div class="search-card mb-3">
+        <% if result.photos.attached? %>
+        <div class="mb-2 mt-1">
+          <% result.photos.take(5).each do |photo| %>
+          <%= cl_image_tag photo.key, size:"70x70", style:"border-radius: 6px;" %>
+          <% end %>
+        </div>
+        <hr style="margin:3px">
+        <% end %>
           <div class="d-flex justify-content-between">
-            <div>
-              <%= link_to result.name, food_stall_path(result) %> <br>
+            <div style="font-size: 14px;" class="my-0 py-0">
+              <%= link_to result.name, food_stall_path(result), style:"font-size: 16px; color:#272727; font-weight: bold" %> <br>
               <% result.rating.times do %>
                 ⭐️
               <% end %>
@@ -38,7 +46,7 @@
               <p style="margin: 0px; padding:0px; color: #4E4C54"><%= result.main_category %></p>
               <p style="margin: 0px; padding:0px; color: #4E4C54; font-size:10px;"><%= result.address %></p>
             </div>
-            <p style="font-size: 14px;"><%= @distances_array[distance_value] %> km | <%= (@time_array[distance_value] / 60).round(0) %> min walk‍</p>
+            <p style="font-size: 13px; color: #656469"><%= @distances_array[distance_value] %> km | <%= (@time_array[distance_value] / 60).round(0) %> min walk‍</p>
             <% distance_value += 1 %>
 
           </div>
