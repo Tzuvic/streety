@@ -32,6 +32,7 @@ end
 #VC
   gem 'pg_search'
   gem 'geocoder'
+  gem 'cocoon'
 
 #TZ
 gem 'cloudinary', '~> 1.12.0'

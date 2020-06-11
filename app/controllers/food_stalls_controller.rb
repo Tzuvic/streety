@@ -77,6 +77,10 @@ class FoodStallsController < ApplicationController
     end.uniq
   end
 
+  def add_menu
+    @food_stall = FoodStall.find(params[:id])
+  end
+
   def popular_foods
     @food_stall = FoodStall.find(params[:id])
   end

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :food_stalls do
 
      resources :reviews, only: [:new, :create]
+     resources :menus, only: [:new, :create]
 
     collection do
     get :search_results

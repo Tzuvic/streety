@@ -44,7 +44,16 @@
         </a>
       </div>
 <% end %>
-      <div class=""><%= link_to 'Translated Menu', menu_food_stall_path, style:"margin-right: 16px"%> <%= link_to 'Popular food',  popular_foods_food_stall_path(@food_stall) %></div>
+      <div class="">
+        <% if @food_stall.menus.present? %>
+          <%= link_to 'Translated Menu', menu_food_stall_path, style:"margin-right: 16px"%>
+        <% else %>
+          <%= link_to 'Add menu', new_food_stall_menu_path(@food_stall), style:"margin-right: 16px" %>
+        <% end %>
+
+
+
+        <%= link_to 'Popular food',  popular_foods_food_stall_path(@food_stall) %></div>
       <hr>
       <h1>Reviews</h1>
       <%= link_to 'Review this food stall', new_food_stall_review_path(@food_stall), data: { turbolinks: false } %>

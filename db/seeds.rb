@@ -17,10 +17,20 @@ test_food_category = { name: 'tacos', description: 'an often crisply fried torti
 first_food_category = FoodCategory.create!(test_food_category)
 puts "created #{first_food_category}"
 
+puts "Creating food category 2..."
+test_food_category = { name: 'tortas', description: 'nice mexican sandwiches'}
+second_food_category = FoodCategory.create!(test_food_category)
+puts "created #{second_food_category}"
+
 puts "Creating Food Item..."
-test_food_item = { name: 'Al pastor', description: 'Meat off of the giant rotating piece of meat', food_category_id: FoodCategory.last.id, user: User.last }
+test_food_item = { name: 'Al pastor', description: 'Meat off of the giant rotating piece of meat', food_category_id: FoodCategory.first.id, user: User.last }
 first_food_item = FoodItem.create!(test_food_item)
 puts "created #{first_food_item}"
+
+puts "Creating Food Item..."
+test_food_item = { name: 'res', description: 'beef torta', food_category_id: FoodCategory.last.id, user: User.last }
+second_food_item = FoodItem.create!(test_food_item)
+puts "created #{second_food_item}"
 
 
 puts "Creating food stall..."

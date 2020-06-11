@@ -1,0 +1,11 @@
+<div class="nested-fields">
+  <div class="field">
+
+        <%= f.association :food_item, collection: FoodItem.where(food_category_id: 62) %>
+    <%= link_to_remove_association "Remove food item", f %>
+  </div>
+</div>
+
+
+
+
