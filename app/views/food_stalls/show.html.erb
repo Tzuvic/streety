@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-sm-6 offset-sm-3">
 
-      <h1><%= @food_stall.name %> | <%= link_to @food_stall.food_type, food_stall_path %></h1>
+      <h1><%= @food_stall.name %> | <%= link_to @food_stall.food_type, food_stall_path %> [<%= link_to 'Edit', edit_food_stall_path(@food_stall) %>]</h1>
       <h2>
         <% if @food_stall.rating == 0 %>
           <span>No ratings yet</span>
@@ -17,43 +17,44 @@
       <!-- <% end %> -->
       <%= link_to '⮑ Get directions', @directions_url %> <br>
       <p><%= @food_stall.address %></p>
-
-<% if @food_stall.photos.attached? %>
-<div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="false">
-
-        <div class="carousel-inner rounded mb-3" style="width:100%; height: 300px !important;">
-          <div class="carousel-item active">
-            <%= cl_image_tag @food_stall.photos.first.key,  class: "d-block w-100", alt: "first slide" %>
-          </div>
-
-          <% @food_stall.photos.drop(1).each do |photo| %>
-            <div class="carousel-item">
-              <%= cl_image_tag photo.key,  class: "d-block w-100", alt: "a slide" %>
-            </div>
-          <% end %>
-        </div>
-
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-<% end %>
+      <hr>
       <div class="">
         <% if @food_stall.menus.present? %>
           <%= link_to 'Translated Menu', menu_food_stall_path, style:"margin-right: 16px"%>
         <% else %>
           <%= link_to 'Add menu', new_food_stall_menu_path(@food_stall), style:"margin-right: 16px" %>
         <% end %>
+        <%= link_to 'Popular food',  popular_foods_food_stall_path(@food_stall) %>
+      </div>
+      <hr>
 
+      <% if @food_stall.photos.attached? %>
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="false">
 
+              <div class="carousel-inner rounded mb-3" style="width:100%; height: 340px !important;">
+                <div class="carousel-item active">
+                  <%= cl_image_tag @food_stall.photos.first.key,  class: "d-block w-100", alt: "first slide" %>
+                </div>
 
-        <%= link_to 'Popular food',  popular_foods_food_stall_path(@food_stall) %></div>
+                <% @food_stall.photos.drop(1).each do |photo| %>
+                  <div class="carousel-item">
+                    <%= cl_image_tag photo.key,  class: "d-block w-100", alt: "a slide" %>
+                  </div>
+                <% end %>
+              </div>
+
+              <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+
+              <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+      <% end %>
+
       <hr>
       <h1>Reviews</h1>
       <%= link_to 'Review this food stall', new_food_stall_review_path(@food_stall), data: { turbolinks: false } %>

@@ -1,8 +1,13 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-4 offset-sm-4 search_results">
-      <h1>Search results for <%= params[:query]%></h1>
-      <a href="#">Mexico City</a> > <a href="#">Tacos</a>
+      <div class="my-2">
+      <% if params[:query].present? %>
+        <a href="#">Mexico City</a> > <a href="#"><%= params[:query] %></a>
+      <% else %>
+        <a href="#">Mexico City</a> > <a href="#">All food types</a>
+      <% end %>
+      </div>
 
       <% if @search_results.present? %>
       <div

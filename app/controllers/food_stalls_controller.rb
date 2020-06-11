@@ -2,6 +2,8 @@ class FoodStallsController < ApplicationController
   require 'json'
   require 'open-uri'
 
+  before_action :set_food_stall, only: [:show, :add_menu, :popular_foods, :edit, :update]
+
   def new
     @food_stall = FoodStall.new
   end
@@ -16,8 +18,20 @@ class FoodStallsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @food_stall.update(food_stall_params)
+      redirect_to food_stall_path(@food_stall)
+    else
+      render :edit
+    end
+  end
+
+
+
   def show
-    @food_stall = FoodStall.find(params[:id])
     @directions_url = "https://www.google.com/maps/dir/?api=1&destination=#{@food_stall.latitude},#{@food_stall.longitude}"
   end
 
@@ -78,16 +92,20 @@ class FoodStallsController < ApplicationController
   end
 
   def add_menu
-    @food_stall = FoodStall.find(params[:id])
+
   end
 
   def popular_foods
-    @food_stall = FoodStall.find(params[:id])
+
   end
 
   private
 
   def food_stall_params
     params.require(:food_stall).permit(:name, :description, :food_type, :schedule, :vegetarian, :address, :phone_number, :rating, photos: [])
+  end
+
+  def set_food_stall
+    @food_stall = FoodStall.find(params[:id])
   end
 end
