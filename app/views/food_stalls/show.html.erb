@@ -5,7 +5,7 @@
       <h1><%= @food_stall.name %> | <%= link_to @food_stall.food_type, food_stall_path %></h1>
       <h2>
         <% if @food_stall.rating == 0 %>
-          <span>No reviews yet</span>
+          <span>No ratings yet</span>
         <% else %>
           <% @food_stall.rating.times do %>
           ⭐️
@@ -16,7 +16,7 @@
         <!-- <span>⭐️</span> -->
       <!-- <% end %> -->
       <%= link_to '⮑ Get directions', @directions_url %> <br>
-      <h2></h2><h1></h1>
+      <p><%= @food_stall.address %></p>
 
 <% if @food_stall.photos.attached? %>
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="false">

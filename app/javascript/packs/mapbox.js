@@ -1,6 +1,6 @@
 // app/javascript/plugins/init_mapbox.js
 import mapboxgl from 'mapbox-gl';
-import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+// import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';  uncomment for map search functionality
 import 'bootstrap';
 
 require("@rails/ujs").start()
@@ -46,8 +46,9 @@ const initMapbox = () => {
 
          fitMapToMarkers(map, markers);
 
-         map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-                                      mapboxgl: mapboxgl }));
+         // map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
+         //                              mapboxgl: mapboxgl }));
+         // uncomment for map search functionality
 
 
 
