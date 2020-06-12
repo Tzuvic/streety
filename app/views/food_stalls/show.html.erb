@@ -69,10 +69,14 @@
 
 
 <% if current_user.photo.attached? %>
-            <%= cl_image_tag current_user.photo.key, gravity: :face, crop: :thumb, height: 400, width: 400, class: "avatar dropdown-toggle", id: "navbarDropdown", style:"margin-right: 8px;", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-         <% else %>
-         <%= image_tag "https://res.cloudinary.com/vc334/image/upload/v1589058566/ldy28x5xt9skq4f2gdznnrs8p490.png", class: "avatar dropdown-toggle", id: "navbarDropdown", style:"margin-right: 8px;", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-        <% end %>
+  <%= link_to user_path(current_user) do %>
+    <%= cl_image_tag current_user.photo.key, gravity: :face, crop: :thumb, height: 400, width: 400, class: "avatar", style:"margin-right: 8px;" %>
+  <% end %>
+  <% else %>
+    <%= link_to user_path(current_user) do %>
+    <%= image_tag "https://res.cloudinary.com/vc334/image/upload/v1589058566/ldy28x5xt9skq4f2gdznnrs8p490.png", class: "avatar", style:"margin-right: 8px;" %>
+  <% end %>
+<% end %>
 
 
 
