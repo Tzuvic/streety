@@ -37,6 +37,11 @@ test_food_item = { name: 'ahogada', image_url: "https://corbuse.edu.mx/blog/wp-c
 second_food_item = FoodItem.create!(test_food_item)
 puts "created #{second_food_item}"
 
+puts "Creating Food Item..."
+test_food_item = { name: 'Thortotas', image_url: "https://pbs.twimg.com/media/CLBn5YKUkAAEfyb.jpg", description: "Welcome to Thortotas, we are proud to serve you one of the best mexican style sandwiches all over the city. The quality of our ingredientes starting with a special bread baked daily, and the freshness of our ingredients will make your experience one of the best. Remember... we serve portions large enough to feed Vikings!!", food_category_id: FoodCategory.last.id, user: User.last }
+first_food_item = FoodItem.create!(test_food_item)
+puts "created #{first_food_item}"
+
 
 puts "Creating food stall..."
 test_food_stall = { name: 'Orinocos', description: "You've got to try this place.  They have the best tacos in a of Mexico City", food_type: 'tacos', schedule: '24/7', vegetarian: false, address: 'Av. Insurgentes Sur 253, 06700 Ciudad de México, CDMX', phone_number: '1231231231', rating: 0, user: User.last, main_category: 'tacos' }
