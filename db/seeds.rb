@@ -38,7 +38,7 @@ second_food_item = FoodItem.create!(test_food_item)
 puts "created #{second_food_item}"
 
 puts "Creating Food Item..."
-test_food_item = { name: 'Thortotas', image_url: "https://pbs.twimg.com/media/CLBn5YKUkAAEfyb.jpg", description: "Welcome to Thortotas, we are proud to serve you one of the best mexican style sandwiches all over the city. The quality of our ingredientes starting with a special bread baked daily, and the freshness of our ingredients will make your experience one of the best. Remember... we serve portions large enough to feed Vikings!!", food_category_id: FoodCategory.last.id, user: User.last }
+test_food_item = { name: 'Torta Vikinga', image_url: "https://pbs.twimg.com/media/CLBn5YKUkAAEfyb.jpg", description: "The best from home! Our delicious bread stuff with a bit of everything on the menu (breaded beaf, scramble eggs, sausage, three types of cheese, jam, avocado, tomatoe, onion, mayo and jalapeños)", food_category_id: FoodCategory.last.id, user: User.last }
 first_food_item = FoodItem.create!(test_food_item)
 puts "created #{first_food_item}"
 
@@ -75,7 +75,7 @@ third_food_stall = FoodStall.create!(test_food_stall)
 puts "created #{third_food_stall}"
 
 puts "Creating Menu 3..."
-test_food_stall_menu = { food_stall_id: FoodStall.last.id, food_item_id: FoodItem.last.id }
+test_food_stall_menu = { food_stall_id: FoodStall.last.id, food_item_id: FoodItem.third.id }
 second_food_stall_menu = Menu.create!(test_food_stall_menu)
 puts "created #{second_food_stall_menu}"
 
