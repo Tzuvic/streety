@@ -5,18 +5,17 @@
 <!-- <div class="m-auto" style="width: 550px"> -->
 
 <%= simple_form_for [@food_stall] do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :food_type, collection: ["Tacos", "Tortas", "Soups", "Burritos", "Tamales", "Gorditas", "Quesadillas", "Enchiladas", "Chilaquiles", "Diserts", "Buffet", "Snacks"] %>
-  <%= f.input :schedule %>
-  <%= f.input :vegetarian, label: 'Vegetarian options'%>
-  <%= f.input :address %>
-  <%= f.input :phone_number %>
-  <%= f.input :rating %>
+  <%= f.input :name, input_html: { class: 'search-fields' }  %>
+  <%= f.input :description, input_html: { class: 'search-fields' } %>
+  <%= f.input :food_type, input_html: { class: 'search-fields' }, collection: ["Tacos", "Tortas", "Soups", "Burritos", "Tamales", "Gorditas", "Quesadillas", "Enchiladas", "Chilaquiles", "Diserts", "Buffet", "Snacks"] %>
+  <%= f.input :vegetarian, input_html: { class: 'search-fields' }, label: 'Has vegetarian options'%>
+  <%= f.input :address, input_html: { class: 'search-fields' } %>
+  <%= f.input :phone_number, input_html: { class: 'search-fields' } %>
+  <%= f.input :schedule, input_html: { class: 'search-fields' }, label: 'Hours' %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
 
   <div class="mb-5">
-  <%= f.submit "Add your food stall", class: "btn btn-dark" %>
+  <%= f.submit "Add stall", class: "btn search-button-styled mt-2 form-control", style: "width: 100%;" %>
   </div>
 <% end %>
 
