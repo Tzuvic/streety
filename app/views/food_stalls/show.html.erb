@@ -4,27 +4,33 @@
 
       <h1><span style="font-weight: bold;"><%= @food_stall.name %></span> | <%= link_to @food_stall.food_type, food_stall_path %> [<%= link_to 'Edit', edit_food_stall_path(@food_stall) %>]</h1>
       <h2>
-        <% if @food_stall.rating == 0 %>
+        <% if @food_stall.rating.nil? %>
           <span>No ratings yet</span>
         <% else %>
           <% @food_stall.rating.times do %>
-          ⭐️
+          <i class="fas fa-star star-color"></i>
           <% end %>
+
+          <% if @food_stall.reviews.count == 0 %>
+            <span style="font-size: 16px; color: #484848;">No reviews yet</span>
+          <% elsif @food_stall.reviews.count == 1 %>
+            <span>1 review</span>
+          <% else %>
+            <span><%= @food_stall.reviews.count %> reviews</span>
+          <% end %>
+
         <% end %>
       </h2>
-      <!-- <% @food_stall.rating.times do %> -->
-        <!-- <span>⭐️</span> -->
-      <!-- <% end %> -->
-      <%= link_to '⮑ Get directions', @directions_url %> <br>
+      <i class="fas fa-directions"></i> <%= link_to 'Get Directions', @directions_url %> <br>
       <p><%= @food_stall.address %></p>
       <hr>
       <div class="">
         <% if @food_stall.menus.present? %>
-          <%= link_to 'Translated Menu', menu_food_stall_path, style:"margin-right: 16px"%>
+          <%= link_to 'Translated Menu', menu_food_stall_path, class: "secondary-button", style:"margin-right: 16px"%>
         <% else %>
-          <%= link_to 'Add menu', new_food_stall_menu_path(@food_stall), style:"margin-right: 16px" %>
+          <%= link_to 'Add menu', new_food_stall_menu_path(@food_stall), class: "secondary-button", style:"margin-right: 16px" %>
         <% end %>
-        <%= link_to 'Popular food',  popular_foods_food_stall_path(@food_stall) %>
+        <%= link_to 'Popular food', popular_foods_food_stall_path(@food_stall), class: "secondary-button" %>
       </div>
       <hr>
 
@@ -53,17 +59,19 @@
                 <span class="sr-only">Next</span>
               </a>
             </div>
+      <hr>
       <% end %>
 
-      <hr>
-      <h1>Reviews</h1>
-      <%= link_to 'Review this food stall', new_food_stall_review_path(@food_stall), data: { turbolinks: false } %>
 
-      <form action="" method="get" id="search_review" class="mb-2">
-        <input type="text" name="search_review_params">
-        <input type="submit" value="Search reviews" class="btn btn-primary">
-      </form>
+      <h1 style="font-weight: bold";>Reviews</h1>
+      <%= link_to 'Write a Review', new_food_stall_review_path(@food_stall), class: "secondary-button", data: { turbolinks: false } %>
 
+      <!-- <form action="" method="get" id="search_review" class="mb-2 mt-2">
+        <input type="text" name="search_review_params" class="search-fields">
+        <input type="submit" value="Search Reviews" class="btn search-button-styled form-control", style="width: 40%;">
+      </form> -->
+      <div class="mb-3">
+      </div>
       <% @food_stall.reviews.each do |review| %>
         <div class="d-flex">
 
@@ -96,7 +104,7 @@
         </div>
 
         <p class="review"><% review.rating.times do %>
-          ⭐️
+          <i class="fas fa-star star-color" style="font-size: 10px;"></i>
         <% end %></p>
         <p class="review"><%= review.content %></p>
         <hr>
