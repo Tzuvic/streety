@@ -21,15 +21,14 @@
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4 offset-sm-4 search_results">
-      <% list_counter = 1 %>
-      <% distance_value = 0 %>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4 offset-sm-4 search_results">
+        <% list_counter = 1 %>
+        <% distance_value = 0 %>
       <hr>
 
       <% @search_results.each do |result| %>
-
         <div class="search-card mb-3">
           <% if result.photos.attached? %>
             <div class="mb-2 mt-1">
@@ -39,42 +38,46 @@
             </div>
         <% end %>
 
-        <div class="d-flex justify-content-start">
-          <div style="font-size: 14px;" class="my-0 py-0">
-<span style="font-size: 16px; color:#272727; font-weight: bold;"><%= list_counter %>. </span>
+        <div class="">
 
-             <%= link_to result.name, food_stall_path(result), style:"font-size: 16px; color:#272727; font-weight: bold" %>
+          <div class="search-flexbox">
+
+            <div class="counter-styled">
+              <%= list_counter %>.
+              <%= link_to result.name, food_stall_path(result) %>
+            </div>
+
+            <div id="distance-time-indicator" >
+            <%= @distances_array[distance_value] %> km <span style="color: grey;">|</span> <%= (@time_array[distance_value] / 60).round(0) %> min walk
+            </div>
+        </div>
 
 
+              <div style="line-height: 16px;">
+                <% result.rating.times do %>
+                  <i class="fas fa-star star-color"></i>
+                <% end %>
 
-            <span id="distance-time-indicator"><%= @distances_array[distance_value] %> km <span style="color: grey;">|</span> <%= (@time_array[distance_value] / 60).round(0) %> min walk‍</span>
-
-            <br>
-
-
-
-
-              <% result.rating.times do %>
-                <i class="fas fa-star star-color"></i>
-              <% end %>
-
-              <% if result.reviews.count == 0 %>
-                <span style="font-size: 16px; color: #484848;">No reviews yet</span>
-              <% elsif result.reviews.count == 1 %>
-                <span>1 review</span>
-              <% else %>
-                <span><%= result.reviews.count %> reviews</span>
-              <% end %>
+                <% if result.reviews.count == 0 %>
+                  <span style="font-size: 14px; color: #484848; ">No reviews yet</span>
+                <% elsif result.reviews.count == 1 %>
+                  <span>1 review</span>
+                <% else %>
+                  <span><%= result.reviews.count %> reviews</span>
+                <% end %>
+              </div>
 
               <p style="margin: 0px; padding:0px; color: #4E4C54"><%= result.main_category %></p>
-
               <p style="margin: 0px; padding:0px; color: #4E4C54; font-size:10px;"><%= result.address %></p>
 
-            </div>
 
               <% list_counter += 1 %>
               <% distance_value += 1 %>
           </div>
+
+
+
+
       </div>
       <hr>
       <% end %>
