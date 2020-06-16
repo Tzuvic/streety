@@ -1,23 +1,23 @@
-<body style="background-color: #fff5f3;">
+<body style="background-color: white;">
 <div class="container menu pt-3">
   <div class="row">
     <div class="col-sm-6 offset-sm-3">
       <div class="text-center">
-      <h1>Translated Menu</h1>
+      <h1>TRANSLATED MENU</h1>
       </div>
       <% @food_categories.each do |food_category| %>
-        <div style="background-color: #fff5f3; padding: 8px; border-radius: 16px;">
-          <div style="background-color: white; padding: 16px; border-radius: 16px;">
+        <div style="background-color: white; padding: 8px; border-radius: 8px;">
+          <div style="background-color: #9FC2CC; padding: 16px; border-radius: 8px;">
         <div>
-        <h2 class="text-center"><%= food_category.name.capitalize %></h2>
+        <h2 class=""><%= food_category.name.upcase %></h2>
       </div>
         <%= image_tag food_category.image_url, width: "100%", style: "object-fit: cover; border-radius: 6px;", class: "mb-2" %>
         <p><%= food_category.description.capitalize %></p>
 
         <% @food_stall.food_items.each do |food_item| %>
           <% if food_item.food_category == food_category %>
-            <div class="text-center">
-            <h2><%= food_item.food_category.name.capitalize %> - <%= food_item.name.capitalize %></h2>
+            <div class="">
+            <h2><%= food_item.food_category.name.singularize.upcase %> <%= food_item.name.upcase %></h2>
             <%= image_tag food_item.image_url, width: "100%", style: "object-fit: cover; border-radius: 6px;", class: "mb-2" %>
           </div>
             <p><%= food_item.description.capitalize%></p>
