@@ -7,6 +7,7 @@
    // padding: 8px;
    // border-radius: 4px;
    margin-bottom: 8px;
+  color: #666666;
 }
 
 .search-card h2 {
@@ -16,7 +17,7 @@
 #distance-time-indicator {
   display: inline-block;
   font-size: 13px;
-  color: black;
+  color: #3E3E3E;
   background-color: #f3f3f3;
   padding: 4px 8px;
   border-radius: 8px;
@@ -33,4 +34,9 @@
   font-size: 16px;
   color:#272727;
   font-weight: bold;
+}
+
+.search-path a {
+  font-size: 13px;
+  color: #666666;
 }
