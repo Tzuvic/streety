@@ -11,10 +11,12 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-    <%= render 'shared/navbar' %>
+    <% unless current_page?(root_url) %>
+      <%= render 'shared/navbar' %>
+    <% end %>
     <%= render 'shared/flashes' %>
     <%= yield %>
-    <%= render 'shared/footer' %>
+    <!-- <%= render 'shared/footer' %> -->
     <%= javascript_pack_tag 'application' %>
     <%= yield(:maps) %>
     <%= yield(:star_rating) %>

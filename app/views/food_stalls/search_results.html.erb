@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-4 offset-sm-4 search_results">
-      <div class="my-2">
+      <div class="my-2 search-path" >
       <% if params[:query].present? %>
         <a href="#">Mexico City</a> > <a href="#"><%= params[:query] %></a>
       <% else %>
@@ -53,21 +53,21 @@
         </div>
 
 
-              <div style="line-height: 16px;">
+              <div style="line-height: 14px;">
                 <% result.rating.times do %>
-                  <i class="fas fa-star star-color"></i>
+                  <i class="fas fa-star star-color" style="font-size: 12px;"></i>
                 <% end %>
 
                 <% if result.reviews.count == 0 %>
                   <span style="font-size: 14px; color: #484848; ">No reviews yet</span>
                 <% elsif result.reviews.count == 1 %>
-                  <span>1 review</span>
+                  <span style="font-size: 14px;">1 review</span>
                 <% else %>
-                  <span><%= result.reviews.count %> reviews</span>
+                  <span style="font-size: 14px;"><%= result.reviews.count %> reviews</span>
                 <% end %>
               </div>
 
-              <p style="margin: 0px; padding:0px; color: #4E4C54"><%= result.main_category %></p>
+              <p style="margin: 0px; padding:0px; color: #4E4C54; font-size: 13px;"><%= result.main_category %></p>
               <p style="margin: 0px; padding:0px; color: #4E4C54; font-size:10px;"><%= result.address %></p>
 
 
