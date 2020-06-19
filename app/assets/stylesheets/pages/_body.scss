@@ -5,7 +5,17 @@ body {
 h1 {
   // font-weight: bold;
   font-size: 24px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
 }
+
+h2 {
+  // font-weight: bold;
+  font-size: 22px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+
 
 footer {
   background-color: white;
@@ -22,4 +32,8 @@ a:visited {
 
 a:hover {
   text-decoration: none;
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
 }
