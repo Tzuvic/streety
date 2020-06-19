@@ -1,4 +1,4 @@
-<div class="col search-col-sm-4 offset-sm-4 pb-3 mb-3 text-center" style="background-color: #ffd260;">
+<div class="col-sm-4 offset-sm-4 pb-3 mb-2" style="background-color: #ffd260;">
   <%= render 'shared/searchbarVictor2' %>
 </div>
 
@@ -52,6 +52,27 @@
 
         <div class="food-category" style="background-image: linear-gradient( rgba(50, 50, 50, 0.4), rgba(50, 50, 50, 0.4) ), url(https://www.mexicanplease.com/wp-content/uploads/2017/05/beef-cheese-empanadas-after-cooking-taking-bite.jpg)">
            <%=  link_to "Empanadas", search_results_food_stalls_path(:query => "empanadas") %>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col search-col">
+
+        <div class="food-category" style="background-image: linear-gradient( rgba(50, 50, 50, 0.4), rgba(50, 50, 50, 0.4) ), url(https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/68D64DAE-9605-42AC-BDCF-328A509EC776/Derivates/7AC0E9FD-F0DA-410B-9D78-19D3C3BEA1F3.jpg
+)">
+          <%=  link_to "Tamales", search_results_food_stalls_path(:query => "tamales") %>
+        </div>
+
+      </div>
+
+      <div class="col search-col-right">
+
+        <div class="food-category" style="background-image: linear-gradient( rgba(50, 50, 50, 0.4), rgba(50, 50, 50, 0.4) ), url(https://food.fnr.sndimg.com/content/dam/images/food/fullset/2004/2/25/0/bw2b07_hambugers1.jpg.rend.hgtvcom.826.620.suffix/1558017418187.jpeg)">
+           <%=  link_to "Hamburguesas", search_results_food_stalls_path(:query => "hamburguesas") %>
         </div>
 
       </div>

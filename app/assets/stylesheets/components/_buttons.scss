@@ -1,11 +1,10 @@
-.search-button-styled, .search-button-styled:focus {
+.search-button-styled, .search-button-styled:focus, .search-button-styled:visited {
   border-radius: 8px;
   padding: 4px 24px;
   // background-color: #EB6043;
   // background-color: #fe4e4e;
   background-color: #376977;
   color: white;
-  width: 90%;
 }
 
 .secondary-button, .secondary-button:link, .secondary-button:visited {
