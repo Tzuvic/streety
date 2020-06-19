@@ -1,69 +1,26 @@
-.search-button-styled {
+.search-button-styled, .search-button-styled:focus {
   border-radius: 8px;
   padding: 4px 24px;
   // background-color: #EB6043;
-  background-color: #FD6546;
+  // background-color: #fe4e4e;
+  background-color: #376977;
   color: white;
   width: 90%;
 }
 
-// .search-button-styled:active: {
-//   border-radius: 8px;
-//   padding: 4px 24px;
-//   // background-color: #EB6043;
-//   background-color: #FD6546;
-//   color: white;
-//   width: 90%;
-// }
-
-// .search-button-styled:disabled {
-//   border-radius: 8px;
-//   padding: 4px 24px;
-//   // background-color: #EB6043;
-//   background-color: #FD6546;
-//   color: white;
-//   width: 90%;
-// }
-
-.search-button-styled:focus {
-  border-radius: 8px;
-  padding: 4px 24px;
-  // background-color: #EB6043;
-  background-color: #FD6546;
-  color: white;
-  width: 90%;
-}
-
-.secondary-button {
+.secondary-button, .secondary-button:link, .secondary-button:visited {
   // border: solid 1px black;
   padding: 4px 12px;
-  border-radius: 8px;
+  border-radius: 4px;
   color: white;
-  background-color: #fc4e4e;
-  font-size: 14px;
-}
-
-.secondary-button:link {
-  // border: solid 1px black;
-  padding: 4px 12px;
-  border-radius: 8px;
-  color: white;
-  background-color: #fc4e4e;
-  font-size: 14px;
-}
-
-.secondary-button:visited {
-  // border: solid 1px black;
-  padding: 4px 12px;
-  border-radius: 8px;
-  color: white;
-  background-color: #fc4e4e;
+  // background-color: #fc4e4e;
+  background-color: #376977;
   font-size: 14px;
 }
 
 .home-search-button, .home-search-button:visited {
-  border-radius: 8px;
-  padding: 4px 24px;
+  border-radius: 4px;
+  padding: 6px 40px;
   // background-color: #EB6043;
   background-color: #fd4e4e;
   color: white;
