@@ -2,14 +2,15 @@
 <div class="container menu pt-3">
   <div class="row">
     <div class="col-sm-6 offset-sm-3">
-      <div class="text-center">
-      <h1>TRANSLATED MENU</h1>
+      <div class="show text-center">
+      <h1>Translated Menu</h1>
       </div>
       <% @food_categories.each do |food_category| %>
-        <div style="background-color: #FF7940; padding: 8px; border-radius: 8px;">
-          <div style="background-color: #FF7940; padding: 16px; border-radius: 8px;">
+        <div style="background-color: white; border-radius: 8px;">
+          <div style="background-color: white; border-radius: 8px;">
         <div>
-        <h2 class=""><%= food_category.name.upcase %></h2>
+        <h2 class=""><%= food_category.name.upcase %>  <i class="las la-volume-up" style="font-size: 18px; " onclick="playAudio('https://res.cloudinary.com/vc334/video/upload/v1591471851/test_vb8p3g.mp3')"></i></h2>
+
       </div>
         <%= image_tag food_category.image_url, width: "100%", style: "object-fit: cover; border-radius: 6px;", class: "mb-2" %>
         <p><%= food_category.description.capitalize %></p>
@@ -23,13 +24,20 @@
             <p><%= food_item.description.capitalize%></p>
           <% end %>
         <% end %>
+        <hr>
         </div>
         </div>
       <% end %>
-
     </div>
   </div>
 </div>
+
+<script>
+function playAudio(url) {
+  new Audio(url).play();
+}
+</script>
+
 </body>
 
 
