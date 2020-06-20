@@ -2,8 +2,8 @@
   <div class="row">
     <div class="col-sm-6 offset-sm-3">
 
-      <h1><span style="font-weight: 500;"><%= @food_stall.name %></span> | <%= link_to @food_stall.food_type, food_stall_path %> [<%= link_to 'Edit', edit_food_stall_path(@food_stall) %>]</h1>
-      <h2>
+      <h1 style="margin-bottom: 4px;"><span style="font-weight: 500;"><%= @food_stall.name %></span> | <%= link_to @food_stall.food_type, food_stall_path %> [<%= link_to 'Edit', edit_food_stall_path(@food_stall) %>]</h1>
+      <h2 style="margin-bottom: 4px;">
         <% if @food_stall.rating.nil? %>
           <span>No ratings yet</span>
         <% else %>
@@ -22,20 +22,26 @@
         <% end %>
       </h2>
       <i class="fas fa-directions"></i> <%= link_to 'Get Directions', @directions_url %> <br>
-      <p><%= @food_stall.address %></p>
-      <hr>
-      <div class="">
+      <p style="margin-bottom: 0px;"><%= @food_stall.address %></p>
+      <hr style="margin: 4px 0px 8px 0px ;">
+      <div style="">
         <% if @food_stall.menus.present? %>
-          <%= link_to 'Translated Menu', menu_food_stall_path, class: "secondary-button", style:"margin-right: 16px"%>
+          <%= link_to 'Translated Menu', menu_food_stall_path, class: "secondary-button", style:"margin-right: 8px"%>
         <% else %>
           <%= link_to 'Add menu', new_food_stall_menu_path(@food_stall), class: "secondary-button", style:"margin-right: 16px" %>
         <% end %>
         <%= link_to 'Popular food', popular_foods_food_stall_path(@food_stall), class: "secondary-button" %>
       </div>
-      <hr>
+
+    </div>
+  </div>
+</div>
 
       <% if @food_stall.photos.attached? %>
-      <h2>Photos</h2>
+      <div style="background-color: #f5f5f5; padding: 12px 0px 4px 0px; margin: 8px 0px 16px 0px;">
+        <div class="container">
+          <h4>PHOTOS</h4>
+        </div>
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="false">
 
               <div class="carousel-inner rounded mb-3" style="width:100%; height: 300px !important;">
@@ -60,11 +66,14 @@
                 <span class="sr-only">Next</span>
               </a>
             </div>
-      <hr>
       <% end %>
+    </div>
 
+<div class="container show mt-3">
+  <div class="row">
+    <div class="col-sm-6 offset-sm-3">
 
-      <h2 style="font-weight: 500";>Reviews</h2>
+      <h4>REVIEWS</h4>
       <%= link_to 'Write a Review', new_food_stall_review_path(@food_stall), class: "secondary-button", data: { turbolinks: false } %>
 
       <!-- <form action="" method="get" id="search_review" class="mb-2 mt-2">
@@ -114,9 +123,7 @@
 
 
     </div>
-
   </div>
-
 </div>
 
 

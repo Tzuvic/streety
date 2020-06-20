@@ -1,43 +1,68 @@
-<div class="container">
-    <div class="show text-center mt-3">
-      <h1>Profile</h1>
-    </div>
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-sm-6 offset-sm-3">
 
-  <div class="profile" style="display: flex; padding-top: 5px;">
-    <div style="height: 180px; width: 200; display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
-      <% if current_user.photo.attached? %>
-        <%= cl_image_tag @user.photo.key, gravity: :face, crop: :thumb, height: 400, width: 400, class: "avatar-small" %>
-      <% else %>
-        <%= image_tag "https://res.cloudinary.com/vc334/image/upload/v1589058566/ldy28x5xt9skq4f2gdznnrs8p490.png", height: 150, width: 200, crop: :fill %>
-      <% end %>
-    </div>
-<!--
-    <img src="https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png" alt="" style="width:200px; height: 150px;">
- -->
-    <div class="profile-info" style="margin-left: 16px; margin-top: 16px;">
-      <p style="font-weight: bold"><%= @user.first_name %> <%= @user.last_name %></p>
-      <p>Lives in <span style="font-weight: bold;"><%= @user.current_city %></span></p>
-      <p>From <span style="font-weight: bold;"><%= @user.home_town %></span></p>
-    </div>
-
-<!--     <div class="profile-description">
-      <p></p>
-    </div> -->
-  </div>
-    <div class="vouches" style="width: 600px">
-      <% if @user.received_vouches.count == 0 %>
-        <h4>No vouches yet</h4>
-      <% elsif @user.received_vouches.count == 1 %>
-        <h4>1 vouch</h4>
-      <% else %>
-        <h4><%= @user.received_vouches.count %> vouches </h4>
-      <% end %>
-
-      <div class="vouches">
-        <%= render 'shared/vouches' %>
+      <div class="show text-center">
+        <h1>Profile</h1>
       </div>
 
+      <div class="profile" style="display: flex; padding-top: 5px;">
+        <div style="height: 180px; width: 200; display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
+          <% if current_user.photo.attached? %>
+            <%= cl_image_tag @user.photo.key, gravity: :face, crop: :thumb, height: 400, width: 400, class: "avatar-small" %>
+          <% else %>
+            <%= image_tag "https://res.cloudinary.com/vc334/image/upload/v1589058566/ldy28x5xt9skq4f2gdznnrs8p490.png", height: 150, width: 200, crop: :fill %>
+          <% end %>
+        </div>
+        <div class="profile-info" style="margin-left: 16px; margin-top: 16px;">
+          <p style="font-weight: bold"><%= @user.first_name %> <%= @user.last_name %></p>
+          <p>Lives in <span style="font-weight: bold;"><%= @user.current_city %></span></p>
+          <p>From <span style="font-weight: bold;"><%= @user.home_town %></span></p>
+        </div>
+      </div>
+
+      <div class="vouches" style="width: 600px">
+        <% if @user.received_vouches.count == 0 %>
+          <h4>No vouches yet</h4>
+        <% elsif @user.received_vouches.count == 1 %>
+          <h4>1 vouch</h4>
+        <% else %>
+          <h4><%= @user.received_vouches.count %> vouches </h4>
+        <% end %>
+        <div class="vouches">
+          <%= render 'shared/vouches' %>
+        </div>
+      </div>
+       <hr>
+
+    <h4>Recommendations (2)</h4>
+    <div class="recommendations" style="padding-top: 10px;">
+      <div class="recommendation">
+        <img src="https://www.dinneratthezoo.com/wp-content/uploads/2018/05/ground-beef-tacos-2.jpg" />
+        <div class="card-product-infos">
+          <h2>El Progresso</h2>
+          <p>⭐️⭐️⭐️⭐️⭐️(10 Reviews)</p>
+        </div>
+      </div>
+      <div class="recommendation">
+        <img src="https://img.chilango.com/2017/10/tacos-orinoco.jpg" />
+        <div class="card-product-infos">
+          <h2>Orinocos</h2>
+          <p>⭐️⭐️⭐️⭐️⭐️(15 Reviews)</p>
+        </div>
+      </div>
     </div>
+    <a href="#"><p style="text-align: center; font-size: 13px; padding-top: 20px;">See All</p></a>
+    <hr>
+
+  <div>
+    <%= link_to 'Edit Profile', edit_user_path(@user), class:"btn search-button-styled form-control" %>
+  </div>
+
+    </div>
+  </div>
+</div>
+
 
   <!-- <div class="Vouches" style="padding-top: 10px;">
     <div class="vouch" style="display: flex; padding-top: 10px;">
@@ -55,32 +80,3 @@
   </div>
  -->
   <!-- <a href="#"><p style="text-align: center; font-size: 13px;">See All</p></a> -->
-  <hr>
-
-
-    <h4>Recommendations (2)</h4>
-    <div class="recommendations" style="padding-top: 10px;">
-        <div class="recommendation">
-          <img src="https://www.dinneratthezoo.com/wp-content/uploads/2018/05/ground-beef-tacos-2.jpg" />
-          <div class="card-product-infos">
-            <h2>El Progresso</h2>
-            <p>⭐️⭐️⭐️⭐️⭐️(10 Reviews)</p>
-          </div>
-        </div>
-        <div class="recommendation">
-          <img src="https://img.chilango.com/2017/10/tacos-orinoco.jpg" />
-          <div class="card-product-infos">
-            <h2>Orinocos</h2>
-            <p>⭐️⭐️⭐️⭐️⭐️(15 Reviews)</p>
-        </div>
-      </div>
-    </div>
-    <a href="#"><p style="text-align: center; font-size: 13px; padding-top: 20px;">See All</p></a>
-    <hr>
-
-  <div>
-    <%= link_to 'Edit Profile', edit_user_path(@user), class:"btn search-button-styled form-control" %>
-  </div>
-
-  </div>
-
