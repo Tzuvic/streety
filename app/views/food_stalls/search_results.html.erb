@@ -1,60 +1,88 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-4 offset-sm-4 search_results">
-      <div class="my-2">
+      <div class="my-2 search-path" >
       <% if params[:query].present? %>
         <a href="#">Mexico City</a> > <a href="#"><%= params[:query] %></a>
       <% else %>
         <a href="#">Mexico City</a> > <a href="#">All food types</a>
       <% end %>
       </div>
+    </div>
+  </div>
+</div>
 
-      <% if @search_results.present? %>
-      <div
-           class="mb-3"
-           id="map"
-           style="width: 100%; height: 400px;"
-           data-markers="<%= @markers.to_json %>"
-           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+<% if @search_results.present? %>
+  <div
+     class="mb-3"
+     id="map"
+     style="width: 100%; height: 320px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 
-      <% distance_value = 0 %>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4 offset-sm-4 search_results">
+        <% list_counter = 1 %>
+        <% distance_value = 0 %>
+
       <% @search_results.each do |result| %>
-
-      <div class="search-card mb-3">
-        <% if result.photos.attached? %>
-        <div class="mb-2 mt-1">
-          <% result.photos.take(5).each do |photo| %>
-          <%= cl_image_tag photo.key, size:"70x70", style:"border-radius: 6px;" %>
-          <% end %>
-        </div>
-        <hr style="margin:3px">
-        <% end %>
-          <div class="d-flex justify-content-between">
-            <div style="font-size: 14px;" class="my-0 py-0">
-              <%= link_to result.name, food_stall_path(result), style:"font-size: 16px; color:#272727; font-weight: bold" %> <br>
-              <% result.rating.times do %>
-                ⭐️
+        <div class="search-card mb-3">
+          <% if result.photos.attached? %>
+            <div class="mb-2 mt-1">
+              <% result.photos.take(5).each do |photo| %>
+                <%= cl_image_tag photo.key, size:"70x70", style:"border-radius: 6px;" %>
               <% end %>
-
-              <% if result.reviews.count == 0 %>
-                <span style="font-size: 16px; color: #484848;">No reviews yet</span>
-              <% elsif result.reviews.count == 1 %>
-                <span>1 review</span>
-              <% else %>
-                <span><%= result.reviews.count %> reviews</span>
-              <% end %>
-              <p style="margin: 0px; padding:0px; color: #4E4C54"><%= result.main_category %></p>
-              <p style="margin: 0px; padding:0px; color: #4E4C54; font-size:10px;"><%= result.address %></p>
             </div>
-            <p style="font-size: 13px; color: #656469"><%= @distances_array[distance_value] %> km | <%= (@time_array[distance_value] / 60).round(0) %> min walk‍</p>
-            <% distance_value += 1 %>
+        <% end %>
 
+        <div class="">
+
+          <div class="search-flexbox">
+
+            <div class="counter-styled">
+              <%= list_counter %>.
+              <%= link_to result.name, food_stall_path(result) %>
+            </div>
+
+            <div id="distance-time-indicator" >
+            <%= @distances_array[distance_value] %> km <span style="color: grey;">|</span> <%= (@time_array[distance_value] / 60).round(0) %> min walk
+            </div>
+        </div>
+
+
+              <div style="line-height: 14px;">
+                <% result.rating.times do %>
+                  <i class="fas fa-star star-color" style="font-size: 12px;"></i>
+                <% end %>
+
+                <% if result.reviews.count == 0 %>
+                  <span style="font-size: 14px; color: #484848; ">No reviews yet</span>
+                <% elsif result.reviews.count == 1 %>
+                  <span style="font-size: 14px;">1 review</span>
+                <% else %>
+                  <span style="font-size: 14px;"><%= result.reviews.count %> reviews</span>
+                <% end %>
+              </div>
+
+              <p style="margin: 0px; padding:0px; color: #4E4C54; font-size: 13px;"><%= result.main_category %></p>
+              <p style="margin: 0px; padding:0px; color: #4E4C54; font-size:10px;"><%= result.address %></p>
+
+
+              <% list_counter += 1 %>
+              <% distance_value += 1 %>
           </div>
+
+
+
+
       </div>
+      <hr>
       <% end %>
-      <% else %>
+    <% else %>
       <h1>No results found</h1>
-      <% end %>
+    <% end %>
     </div>
   </div>
 </div>

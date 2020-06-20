@@ -1,7 +1,10 @@
 //Home Page
 .header {
   text-align: center;
-  padding-top: 20px;
+  margin-top: 50px;
+  color: black;
+  // text-shadow: 10px 10px 30px black;
+  margin-bottom: 20px;
 }
 .form-inline {
   padding-top: 10px;
@@ -116,7 +119,7 @@
 
 // Footer CSS
 .footer {
-  background: #F4F4F4;
+  background: white;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -160,4 +163,11 @@
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
+
+#homepage-image {
+  width: 100%;
+  border-radius: 4px;
+}
+
+
 

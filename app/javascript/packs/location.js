@@ -4,7 +4,7 @@ const searchForm = document.querySelector("#food_type");
 const searchButton = document.querySelector("#search-submit");
 
   locationVictor.addEventListener("click", () => {
-  locationPlaceholder.placeholder = "current location";
+  locationPlaceholder.placeholder = "Current Location";
   locationPlaceholder.classList.add('placeholder-color');
   searchButton.disabled = true;
   getLocation();

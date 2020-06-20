@@ -1,13 +1,23 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+
   <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "https://lewagon.s3.amazonaws.com/StreetyLargeTrimmed.png" %>
+    <div id="main-logo">
+      Streety
+      </div>
     <% end %>
 
-    <div class="navbar-menus">
+  <!-- <%= link_to root_path, class: "navbar-brand" do %> -->
+    <!-- <%= image_tag "https://lewagon.s3.amazonaws.com/StreetyLargeTrimmed.png" %> -->
+    <!-- <% end %> -->
 
+    <div class="navbar-menus">
+<div class="d-flex align-items-center">
 <%= link_to search_path do %>
-   <%= image_tag "https://image.flaticon.com/icons/png/512/68/68213.png", class: "navbar-mg", data: { turbolinks: false } %>
+  <i class="fas fa-search navbar-mg" data="turbolinks: false"></i>
 <% end %>
+</div>
+
+<!--  <%= image_tag "https://image.flaticon.com/icons/png/512/68/68213.png", class: "navbar-mg", data: { turbolinks: false } %> -->
 
      <!--  <a href="https://streety.mx/search">
       <img src="https://image.flaticon.com/icons/png/512/68/68213.png" class="navbar-mg">
@@ -20,12 +30,12 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Home", root_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Messages", "#", class: "nav-link" %>
-        </li>
+        <!-- <li class="nav-item active"> -->
+          <!-- <%= link_to "Home", root_path, class: "nav-link" %> -->
+        <!-- </li> -->
+        <!-- <li class="nav-item"> -->
+          <!-- <%= link_to "Messages", "#", class: "nav-link" %> -->
+        <!-- </li> -->
         <li class="nav-item dropdown">
 
 
@@ -39,8 +49,8 @@
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to 'My Profile', user_path(current_user) %>
 
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
+            <!-- <%= link_to "Action", "#", class: "dropdown-item" %> -->
+            <!-- <%= link_to "Another action", "#", class: "dropdown-item" %> -->
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>

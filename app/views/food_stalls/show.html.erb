@@ -2,36 +2,49 @@
   <div class="row">
     <div class="col-sm-6 offset-sm-3">
 
-      <h1><span style="font-weight: bold;"><%= @food_stall.name %></span> | <%= link_to @food_stall.food_type, food_stall_path %> [<%= link_to 'Edit', edit_food_stall_path(@food_stall) %>]</h1>
-      <h2>
-        <% if @food_stall.rating == 0 %>
+      <h1 style="margin-bottom: 4px;"><span style="font-weight: 500;"><%= @food_stall.name %></span> | <%= link_to @food_stall.food_type, food_stall_path %> [<%= link_to 'Edit', edit_food_stall_path(@food_stall) %>]</h1>
+      <h2 style="margin-bottom: 4px;">
+        <% if @food_stall.rating.nil? %>
           <span>No ratings yet</span>
         <% else %>
           <% @food_stall.rating.times do %>
-          ⭐️
+          <i class="fas fa-star star-color"></i>
           <% end %>
+
+          <% if @food_stall.reviews.count == 0 %>
+            <span style="font-size: 16px; color: #484848;">No reviews yet</span>
+          <% elsif @food_stall.reviews.count == 1 %>
+            <span>1 review</span>
+          <% else %>
+            <span><%= @food_stall.reviews.count %> reviews</span>
+          <% end %>
+
         <% end %>
       </h2>
-      <!-- <% @food_stall.rating.times do %> -->
-        <!-- <span>⭐️</span> -->
-      <!-- <% end %> -->
-      <%= link_to '⮑ Get directions', @directions_url %> <br>
-      <p><%= @food_stall.address %></p>
-      <hr>
-      <div class="">
+      <i class="fas fa-directions"></i> <%= link_to 'Get Directions', @directions_url %> <br>
+      <p style="margin-bottom: 0px;"><%= @food_stall.address %></p>
+      <hr style="margin: 4px 0px 8px 0px ;">
+      <div style="">
         <% if @food_stall.menus.present? %>
-          <%= link_to 'Translated Menu', menu_food_stall_path, style:"margin-right: 16px"%>
+          <%= link_to 'Translated Menu', menu_food_stall_path, class: "secondary-button", style:"margin-right: 8px"%>
         <% else %>
-          <%= link_to 'Add menu', new_food_stall_menu_path(@food_stall), style:"margin-right: 16px" %>
+          <%= link_to 'Add menu', new_food_stall_menu_path(@food_stall), class: "secondary-button", style:"margin-right: 16px" %>
         <% end %>
-        <%= link_to 'Popular food',  popular_foods_food_stall_path(@food_stall) %>
+        <%= link_to 'Popular food', popular_foods_food_stall_path(@food_stall), class: "secondary-button" %>
       </div>
-      <hr>
+
+    </div>
+  </div>
+</div>
 
       <% if @food_stall.photos.attached? %>
+      <div style="background-color: #f5f5f5; padding: 12px 0px 4px 0px; margin: 8px 0px 16px 0px;">
+        <div class="container">
+          <h4>PHOTOS</h4>
+        </div>
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="false">
 
-              <div class="carousel-inner rounded mb-3" style="width:100%; height: 340px !important;">
+              <div class="carousel-inner rounded mb-3" style="width:100%; height: 300px !important;">
                 <div class="carousel-item active">
                   <%= cl_image_tag @food_stall.photos.first.key,  class: "d-block w-100", alt: "first slide" %>
                 </div>
@@ -54,16 +67,21 @@
               </a>
             </div>
       <% end %>
+    </div>
 
-      <hr>
-      <h1>Reviews</h1>
-      <%= link_to 'Review this food stall', new_food_stall_review_path(@food_stall), data: { turbolinks: false } %>
+<div class="container show mt-3">
+  <div class="row">
+    <div class="col-sm-6 offset-sm-3">
 
-      <form action="" method="get" id="search_review" class="mb-2">
-        <input type="text" name="search_review_params">
-        <input type="submit" value="Search reviews" class="btn btn-primary">
-      </form>
+      <h4>REVIEWS</h4>
+      <%= link_to 'Write a Review', new_food_stall_review_path(@food_stall), class: "secondary-button", data: { turbolinks: false } %>
 
+      <!-- <form action="" method="get" id="search_review" class="mb-2 mt-2">
+        <input type="text" name="search_review_params" class="search-fields">
+        <input type="submit" value="Search Reviews" class="btn search-button-styled form-control", style="width: 40%;">
+      </form> -->
+      <div class="mb-3">
+      </div>
       <% @food_stall.reviews.each do |review| %>
         <div class="d-flex">
 
@@ -96,7 +114,7 @@
         </div>
 
         <p class="review"><% review.rating.times do %>
-          ⭐️
+          <i class="fas fa-star star-color" style="font-size: 10px;"></i>
         <% end %></p>
         <p class="review"><%= review.content %></p>
         <hr>
@@ -105,9 +123,7 @@
 
 
     </div>
-
   </div>
-
 </div>
 
 

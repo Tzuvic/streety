@@ -1,6 +1,6 @@
 .avatar {
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
 }
 .avatar-large {
@@ -21,6 +21,8 @@
 }
 
 .avatar-small {
-  width:200px;
-  height: 200px;
+  width:150px;
+  height: 150px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }

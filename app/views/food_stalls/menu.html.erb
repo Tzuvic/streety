@@ -1,25 +1,43 @@
+<body style="background-color: white;">
 <div class="container menu pt-3">
   <div class="row">
     <div class="col-sm-6 offset-sm-3">
-      <h2 class="title" style="font-size: 20px;">Translated Menu - <%= @food_stall.name %></h2>
-
+      <div class="show text-center">
+      <h1>Translated Menu</h1>
+      </div>
       <% @food_categories.each do |food_category| %>
-        <h3><%= food_category.name %></h3>
-        <%= image_tag food_category.image_url, size: "120x120", style: "object-fit: cover;", class: "mb-2" %>
-        <p><%= food_category.description %></p>
+        <div style="background-color: white; border-radius: 8px;">
+          <div style="background-color: white; border-radius: 8px;">
+        <div>
+        <h2 class=""><%= food_category.name.upcase %>  <i class="las la-volume-up" style="font-size: 18px; " onclick="playAudio('https://res.cloudinary.com/vc334/video/upload/v1591471851/test_vb8p3g.mp3')"></i></h2>
+
+      </div>
+        <%= image_tag food_category.image_url, width: "100%", style: "object-fit: cover; border-radius: 6px;", class: "mb-2" %>
+        <p><%= food_category.description.capitalize %></p>
 
         <% @food_stall.food_items.each do |food_item| %>
           <% if food_item.food_category == food_category %>
-            <p style="font-weight: bold; margin: 0px; padding: 0px;"><%= food_item.name %></p>
-            <%= image_tag food_item.image_url, size: "120x120", style: "object-fit: cover;", class: "mb-2" %>
-            <p><%= food_item.description %></p>
+            <div class="">
+            <h2><%= food_item.food_category.name.singularize.upcase %> <%= food_item.name.upcase %></h2>
+            <%= image_tag food_item.image_url, width: "100%", style: "object-fit: cover; border-radius: 6px;", class: "mb-2" %>
+          </div>
+            <p><%= food_item.description.capitalize%></p>
           <% end %>
         <% end %>
-
+        <hr>
+        </div>
+        </div>
       <% end %>
-
     </div>
   </div>
 </div>
+
+<script>
+function playAudio(url) {
+  new Audio(url).play();
+}
+</script>
+
+</body>
 
 
