@@ -23,7 +23,7 @@
       </h2>
       <i class="fas fa-directions"></i> <%= link_to 'Get Directions', @directions_url %> <br>
       <p style="margin-bottom: 0px;"><%= @food_stall.address %></p>
-      <hr style="margin: 4px 0px 8px 0px ;">
+      <hr style="margin: 4px 0px 12px 0px ;">
       <div style="">
         <% if @food_stall.menus.present? %>
           <%= link_to 'Translated Menu', menu_food_stall_path, class: "secondary-button", style:"margin-right: 8px"%>
@@ -38,7 +38,7 @@
 </div>
 
       <% if @food_stall.photos.attached? %>
-      <div style="background-color: #f5f5f5; padding: 12px 0px 4px 0px; margin: 8px 0px 16px 0px;">
+      <div style="background-color: #f5f5f5; padding: 12px 0px 4px 0px; margin: 12px 0px 16px 0px;">
         <div class="container">
           <h4>PHOTOS</h4>
         </div>
@@ -108,7 +108,7 @@
             <% else %>
             <p class="review">Anonymous user</p>
             <% end %>
-            <p style="margin-bottom: 0px;">Vouches: 4</p>
+            <p style="margin-bottom: 0px;">Vouches: <%= review.user.received_vouches.count %></p>
 
           </div>
         </div>
