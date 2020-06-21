@@ -84,6 +84,16 @@ ActiveRecord::Schema.define(version: 2020_06_11_161454) do
     t.index ["user_id"], name: "index_food_stalls_on_user_id"
   end
 
+  create_table "lists", force: :cascade do |t|
+    t.string "list_name"
+    t.bigint "user_id", null: false
+    t.bigint "food_stall_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["food_stall_id"], name: "index_lists_on_food_stall_id"
+    t.index ["user_id"], name: "index_lists_on_user_id"
+  end
+
   create_table "menus", force: :cascade do |t|
     t.bigint "food_stall_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -112,12 +122,12 @@ ActiveRecord::Schema.define(version: 2020_06_11_161454) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.float "latitude"
-    t.float "longitude"
     t.string "first_name"
     t.string "last_name"
     t.string "home_town"
     t.string "current_city"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -138,6 +148,8 @@ ActiveRecord::Schema.define(version: 2020_06_11_161454) do
   add_foreign_key "food_items", "food_categories"
   add_foreign_key "food_items", "users"
   add_foreign_key "food_stalls", "users"
+  add_foreign_key "lists", "food_stalls"
+  add_foreign_key "lists", "users"
   add_foreign_key "menus", "food_items"
   add_foreign_key "menus", "food_stalls"
   add_foreign_key "reviews", "food_stalls"
