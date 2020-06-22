@@ -40,7 +40,7 @@ class FoodStallsController < ApplicationController
       current_user.update(eval(params[:location2]))
       user_location = [current_user.latitude, current_user.longitude]
       food_stalls = FoodStall.near(user_location, 10)
-    elsif params[:location] != ""
+    elsif params[:location].present?
       food_stalls = FoodStall.near(params[:location], 10)
       current_user.update(address: params[:location])
     elsif current_user.latitude.present? && current_user.longitude.present?

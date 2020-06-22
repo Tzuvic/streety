@@ -16,7 +16,6 @@
 
 #distance-time-indicator {
   display: inline-block;
-  font-size: 13px;
   color: #3E3E3E;
   background-color: #f3f3f3;
   padding: 4px 8px;
@@ -38,6 +37,8 @@
 }
 
 .search-path a {
-  font-size: 13px;
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   color: #666666;
 }
