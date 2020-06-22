@@ -4,8 +4,13 @@
       <%= simple_form_for [@food_stall, @review] do |f| %>
         <%= f.input :content, input_html: { class: 'search-fields' }, label: "Review #{@food_stall.name}" %>
         <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
+        <%= f.label "Would you recommend any dishes from #{@food_stall.name.capitalize}?" %>
+        <%= f.input :rating, collection: (1..5).to_a, label: false %>
         <%= f.submit class: "btn search-button-styled mt-2 form-control", style: "width: 100%;", value: "Submit Review" %>
       <% end %>
+
+
+
     </div>
   </div>
 </div>
