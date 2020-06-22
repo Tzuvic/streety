@@ -1,17 +1,3 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4 offset-sm-4 search_results">
-      <div class="my-2 search-path" >
-      <% if params[:query].present? %>
-        <a href="#">Mexico City</a> > <a href="#"><%= params[:query] %></a>
-      <% else %>
-        <a href="#">Mexico City</a> > <a href="#">All food types</a>
-      <% end %>
-      </div>
-    </div>
-  </div>
-</div>
-
 <% if @search_results.present? %>
   <div
      class="mb-3"
@@ -24,6 +10,22 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-4 offset-sm-4 search_results">
+
+        <div class="my-3 search-path" >
+        <% if params[:query].present? %>
+          <a href="#"><%= params[:query].capitalize %></a>
+        <% else %>
+          <a href="#">All Foods</a>
+        <% end %>
+          <% if params[:location2].present? %>
+            <a href="#">Near You</a>
+          <% elsif params[:location].present? %>
+            <a href="#">Near "<%= params[:location] %>"</a>
+          <% else %>
+            <a href="#">Mexico City</a>
+          <% end %>
+        </div>
+
         <% list_counter = 1 %>
         <% distance_value = 0 %>
 
@@ -48,10 +50,11 @@
 
             <% if @distances_array.present? %>
             <div id="distance-time-indicator" >
-            <%= @distances_array[distance_value] %> km <span style="color: grey;">|</span> <%= (@time_array[distance_value] / 60).round(0) %> min walk
+            <%= @distances_array[distance_value] %> km <span style="color: grey;">|</span> <%= '%d:%02d' % (@time_array[distance_value] / 60).round(0).divmod(60) %> <i class="fas fa-walking" style="font-size: 9px;"></i>
             </div>
             <% end %>
         </div>
+
 
 
               <div style="line-height: 14px;">

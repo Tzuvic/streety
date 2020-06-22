@@ -15,9 +15,9 @@
           <% end %>
         </div>
         <div class="profile-info" style="margin-left: 16px; margin-top: 16px;">
-          <p style="font-weight: bold"><%= @user.first_name %> <%= @user.last_name %></p>
-          <p>Lives in <span style="font-weight: bold;"><%= @user.current_city %></span></p>
-          <p>From <span style="font-weight: bold;"><%= @user.home_town %></span></p>
+          <p style="font-weight: 500; margin-bottom: 2px;"><%= @user.first_name %> <%= @user.last_name %></p>
+          <p style="margin-bottom: 2px;">Lives in <span style="font-weight: 500;"><%= @user.current_city %></span></p>
+          <p>From <span style="font-weight: 500;"><%= @user.home_town %></span></p>
         </div>
       </div>
 
@@ -56,7 +56,7 @@
     <hr>
 
   <div>
-    <%= link_to 'Edit Profile', edit_user_path(@user), class:"btn search-button-styled form-control" %>
+    <%= link_to 'Edit Profile', edit_user_path(@user), class:"btn search-button-styled form-control", style: "color: white;" %>
   </div>
 
     </div>
