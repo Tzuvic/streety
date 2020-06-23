@@ -2,7 +2,7 @@ class FoodStallsController < ApplicationController
   require 'json'
   require 'open-uri'
 
-  before_action :set_food_stall, only: [:show, :add_menu, :popular_foods, :edit, :update]
+  before_action :set_food_stall, only: [:show, :add_menu, :popular_foods, :edit, :update, :popular_foods_first, :popular_foods_second]
 
   def new
     @food_stall = FoodStall.new
@@ -93,12 +93,19 @@ class FoodStallsController < ApplicationController
     end.uniq
   end
 
-  def add_menu
+  def popular_foods
 
   end
 
-  def popular_foods
+  def popular_foods_first
 
+  end
+
+  def popular_foods_second
+    food = params[:food_recommendation].to_i
+    @food_stall.popular_foods[food] += 1
+    @food_stall.save
+    redirect_to food_stall_path(@food_stall)
   end
 
   private
