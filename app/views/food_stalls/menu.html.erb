@@ -5,11 +5,19 @@
       <div class="show text-center">
       <h1>Translated Menu</h1>
       </div>
+
+      <div class="my-3">
+      <% @food_categories.each do |food_category| %>
+        <%= link_to food_category.name.capitalize, menu_food_stall_path(@food_stall, anchor: food_category.name), class: 'menu-toc' %>
+     <% end %>
+      </div>
+
+
       <% @food_categories.each do |food_category| %>
         <div style="background-color: white; border-radius: 8px;">
           <div style="background-color: white; border-radius: 8px;">
         <div>
-        <h2 class=""><%= food_category.name.upcase %>  <i class="las la-volume-up" style="font-size: 18px; " onclick="playAudio('https://res.cloudinary.com/vc334/video/upload/v1591471851/test_vb8p3g.mp3')"></i></h2>
+        <h2 style="font-size: 16px;" id="<%= food_category.name %>"><%= food_category.name.upcase %>  <i class="las la-volume-up" style="font-size: 18px; " onclick="playAudio('https://res.cloudinary.com/vc334/video/upload/v1591471851/test_vb8p3g.mp3')"></i></h2>
 
       </div>
         <%= image_tag food_category.image_url, width: "100%", style: "object-fit: cover; border-radius: 6px;", class: "mb-2" %>
@@ -18,7 +26,7 @@
         <% @food_stall.food_items.each do |food_item| %>
           <% if food_item.food_category == food_category %>
             <div class="">
-            <h2><%= food_item.food_category.name.singularize.upcase %> <%= food_item.name.upcase %></h2>
+            <h2 style="font-weight: 500"><%= food_item.food_category.name.singularize.upcase %> <%= food_item.name.upcase %></h2>
             <%= image_tag food_item.image_url, width: "100%", style: "object-fit: cover; border-radius: 6px;", class: "mb-2" %>
           </div>
             <p><%= food_item.description.capitalize%></p>
