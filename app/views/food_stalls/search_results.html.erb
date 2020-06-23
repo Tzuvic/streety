@@ -11,7 +11,7 @@
     <div class="row">
       <div class="col-sm-4 offset-sm-4 search_results">
 
-        <div class="my-3 search-path" >
+        <div class="mb-3 mt-1 search-path" >
         <% if params[:query].present? %>
           <a href="#"><%= params[:query].capitalize %></a>
         <% else %>
@@ -22,7 +22,7 @@
           <% elsif params[:location].present? %>
             <a href="#">Near "<%= params[:location] %>"</a>
           <% else %>
-            <a href="#">Mexico City</a>
+            <a href="#">in Mexico City</a>
           <% end %>
         </div>
 
