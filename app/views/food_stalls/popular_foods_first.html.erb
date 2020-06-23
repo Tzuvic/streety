@@ -1,0 +1,17 @@
+<div class="container show mt-3">
+  <div class="row">
+    <div class="col-sm-6 offset-sm-3">
+      <form action="/food_stalls/<%= @food_stall.id %>/popular_foods_second" method="get">
+        <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+        <label for="food_recommendation">What was your favorite dish here?</label>
+        <select name="food_recommendation">
+           <%= @food_stall.food_items.each do |food_item| %>
+             <option value="<%= food_item.id %>"><%= food_item.name %></option>
+           <% end %>
+        </select>
+        <input type="submit" value="submit">
+      </form>
+
+    </div>
+  </div>
+</div>
