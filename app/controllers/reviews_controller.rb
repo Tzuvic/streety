@@ -18,11 +18,12 @@ class ReviewsController < ApplicationController
       new_average = reviews.sum / reviews.count
       @food_stall.rating = new_average
       @food_stall.save
-      redirect_to food_stall_path(@food_stall)
+      redirect_to popular_foods_first_food_stall_path(@food_stall)
     else
       flash[:alert] = "Something went terribly wrong."
       render :new
     end
+
   end
 
   private
