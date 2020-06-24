@@ -97,17 +97,6 @@ class FoodStallsController < ApplicationController
 
   end
 
-  def popular_foods_first
-
-  end
-
-  def popular_foods_second
-    food = params[:food_recommendation].to_i
-    @food_stall.popular_foods[food] += 1
-    @food_stall.save
-    redirect_to food_stall_path(@food_stall)
-  end
-
   private
 
   def food_stall_params

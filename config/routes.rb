@@ -22,8 +22,6 @@ Rails.application.routes.draw do
     member do
     get :menu
     get :popular_foods
-    get :popular_foods_first
-    get :popular_foods_second
     end
 
    end
