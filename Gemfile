@@ -33,6 +33,8 @@ end
   gem 'pg_search'
   gem 'geocoder'
   gem 'cocoon'
+  gem 'sidekiq'
+  gem 'sidekiq-failures', '~> 1.0'
 
 #TZ
 gem 'cloudinary', '~> 1.12.0'
