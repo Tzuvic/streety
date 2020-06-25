@@ -35,6 +35,7 @@ end
   gem 'cocoon'
   gem 'sidekiq'
   gem 'sidekiq-failures', '~> 1.0'
+  gem 'google-cloud-text_to_speech'
 
 #TZ
 gem 'cloudinary', '~> 1.12.0'

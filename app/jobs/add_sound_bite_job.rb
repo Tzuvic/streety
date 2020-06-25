@@ -1,7 +1,7 @@
 class AddSoundBiteJob < ApplicationJob
   queue_as :default
 
-  def perform(*args)
+  def perform
     # Do something later
     require "google/cloud/text_to_speech"
     client = Google::Cloud::TextToSpeech.text_to_speech
