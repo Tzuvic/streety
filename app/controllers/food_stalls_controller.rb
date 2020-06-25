@@ -97,6 +97,10 @@ class FoodStallsController < ApplicationController
 
   end
 
+  def qr_code
+
+  end
+
   private
 
   def food_stall_params
