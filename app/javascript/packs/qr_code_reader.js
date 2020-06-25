@@ -14,7 +14,7 @@ codeReader
      setTimeout(function(){
        //put your code in here to be delayed by 2 seconds
        window.location.href = `${result}`;
-     },2000);
+     },2500);
 
     // const sendtopage = window.location.href = `${result}`;
   })
