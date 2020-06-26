@@ -33,6 +33,7 @@ end
   gem 'pg_search'
   gem 'geocoder'
   gem 'cocoon'
+  gem 'jquery-rails'
 
 #TZ
 gem 'cloudinary', '~> 1.12.0'

@@ -33,6 +33,8 @@ class FoodStallsController < ApplicationController
 
   def show
     @directions_url = "https://www.google.com/maps/dir/?api=1&destination=#{@food_stall.latitude},#{@food_stall.longitude}"
+    @favorite_exists = FavoriteFoodstall.where(food_stall: @food_stall, user: current_user) == [] ? false : true
+    @recommendation_exists = Recommendation.where(food_stall: @food_stall, user: current_user) == [] ? false : true
   end
 
   def search_results
