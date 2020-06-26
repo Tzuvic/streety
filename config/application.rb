@@ -21,5 +21,8 @@ module Streety
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
     config.active_job.queue_adapter = :sidekiq
+
+
+    config.active_storage.content_types_allowed_inline = ["audio/mp3", "audio/mp4", "audio/mpeg"]
   end
 end
