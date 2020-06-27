@@ -7,15 +7,15 @@
     <% end %>
 
     <div class="navbar-menus">
-<div class="d-flex align-items-center">
-<%= link_to search_path do %>
-  <i class="fas fa-search navbar-mg" data="turbolinks: false"></i>
-<% end %>
-</div>
+      <div class="d-flex align-items-center">
+        <%= link_to search_path do %>
+          <i class="fas fa-search navbar-mg" data="turbolinks: false"></i>
+        <% end %>
+    </div>
 
       <% if user_signed_in? %>
           <% if current_user.photo.attached? %>
-            <%= cl_image_tag current_user.photo.key, gravity: :face, crop: :thumb, height: 400, width: 400, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, %>
+            <%= cl_image_tag current_user.photo.key, gravity: :face, crop: :thumb, height: 400, width: 400, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% else %>
             <%= image_tag "https://res.cloudinary.com/vc334/image/upload/v1589058566/ldy28x5xt9skq4f2gdznnrs8p490.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>
@@ -29,13 +29,8 @@
           </div>
 
       <% else %>
-
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-
       <% end %>
 
-
     </div>
-
   </div>
-</div>
