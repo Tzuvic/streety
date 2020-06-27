@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_26_190425) do
+ActiveRecord::Schema.define(version: 2020_06_27_212508) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 2020_06_26_190425) do
     t.boolean "vegetarian", default: false
     t.string "address"
     t.string "phone_number"
-    t.integer "rating"
+    t.integer "rating", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.float "latitude"
@@ -130,12 +130,12 @@ ActiveRecord::Schema.define(version: 2020_06_26_190425) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.float "latitude"
-    t.float "longitude"
     t.string "first_name"
     t.string "last_name"
     t.string "home_town"
     t.string "current_city"
+    t.float "latitude"
+    t.float "longitude"
     t.string "address"
     t.boolean "admin", default: false, null: false
     t.index ["email"], name: "index_users_on_email", unique: true

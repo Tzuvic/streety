@@ -16,9 +16,15 @@
           <% end %>
         </div>
         <div class="profile-info" style="margin-left: 20px; margin-top: 28px;">
+          <% if @user.first_name.present? && @user.last_name.present? %>
           <p style="font-weight: 500; margin-bottom: 2px; font-size: 20px;"><%= @user.first_name.capitalize %> <%= @user.last_name.first.capitalize %>.</p>
+          <% end %>
+          <% if @user.current_city.present? %>
           <p style="margin-bottom: 2px;"><i class="fas fa-home" style="color: #60656C;"></i> Lives in <span style="font-weight: 500;"><%= @user.current_city %></span></p>
+          <% end %>
+          <% if @user.home_town.present? %>
           <p>&nbsp;<i class="fas fa-map-marker-alt" style="color: #60656C;"></i>&nbsp;<span style="margin-left: 2px;">From</span> <span style="font-weight: 500;"><%= @user.home_town %></span></p>
+          <% end %>
         </div>
       </div>
 
@@ -60,7 +66,7 @@
       </div>
        <hr>
 
-    <h4><%= @user.first_name.upcase %>'S STALL RECOMMENDATIONS (<%= @user.recommendations.count %>)</h4>
+    <h4><% if @user.first_name.present? %><%= @user.first_name.upcase %>'S<% end %> STALL RECOMMENDATIONS (<%= @user.recommendations.count %>)</h4>
 
     <% if @recommendations_list.present? %>
             <div class="text-center mt-3">
