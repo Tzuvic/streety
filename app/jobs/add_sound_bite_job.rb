@@ -35,3 +35,8 @@ class AddSoundBiteJob < ApplicationJob
     puts "Audio content written to mp3 file"
   end
 end
+
+
+attach(io: File.open("#{Rails.root}/tmp/bdffb56d-c0c0-4db4-a8a0-9fe68b1cd881_sound_file.mp3"), filename: 'nothing.mp3', content_type: "audio/mp3")
+
+  bdffb56d-c0c0-4db4-a8a0-9fe68b1cd881_sound_file
