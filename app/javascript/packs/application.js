@@ -1,6 +1,9 @@
 require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
+//= require jquery3
+//= require jquery_ujs
+window.$ = $ //Caio recmommended to put this here because with js.erb files, libraries won't load.  So in the user's browser (window), it will load $, which is jquery.  The above requires are not necessary here because jquery is loaded with webpack.
 
 import "bootstrap";
 import "cocoon";
