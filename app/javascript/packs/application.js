@@ -3,6 +3,7 @@ require("@rails/activestorage").start()
 require("channels")
 //= require jquery3
 //= require jquery_ujs
+window.$ = $
 
 import "bootstrap";
 import "cocoon";

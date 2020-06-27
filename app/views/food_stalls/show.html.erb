@@ -4,8 +4,8 @@
       <div class="d-flex justify-content-between">
         <h1 style="margin-bottom: 4px;"><span style="font-weight: 500;"><%= @food_stall.name %></span> | <%= link_to @food_stall.food_type, food_stall_path %> <% if current_user.admin == true %> [<%= link_to 'Edit', edit_food_stall_path(@food_stall) %>]<% end %></h1>
         <div>
-        <%= link_to favorite_foodstalls_update_path(food_stall: @food_stall), id: 'favorite_link', remote: true do %>
-          <i class="<%= favorite_text %> mr-1" style="color: #eb5f42; font-size: 17px;"></i>
+        <%= link_to favorite_foodstalls_update_path(food_stall: @food_stall), remote: true do %>
+          <i class="<%= favorite_text %> mr-1" style="color: #eb5f42; font-size: 17px;" id='favorite_link'></i>
         <% end %>
         <%= link_to recommendations_update_path(food_stall: @food_stall), id: 'recommendation_link', remote: true do %>
           <i class="<%= recommendation_text %>" style="color: #376977; font-size: 17px;"></i>
