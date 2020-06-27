@@ -81,7 +81,6 @@ ActiveRecord::Schema.define(version: 2020_06_21_205436) do
     t.float "longitude"
     t.string "main_category"
     t.string "popular_foods"
-    t.boolean "reviewed_by_local", default: false
     t.index ["user_id"], name: "index_food_stalls_on_user_id"
   end
 

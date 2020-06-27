@@ -15,4 +15,8 @@ class FoodStall < ApplicationRecord
       using: {
         tsearch: { prefix: true }
       }
+
+  def reviewed_by_local?
+    reviews.any?(&:created_by_local?)
+  end
 end
