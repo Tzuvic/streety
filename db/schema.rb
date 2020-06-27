@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2020_06_21_205436) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,7 +82,7 @@ ActiveRecord::Schema.define(version: 2020_06_21_205436) do
     t.float "latitude"
     t.float "longitude"
     t.string "main_category"
-    t.string "popular_foods"
+    t.text "popular_foods"
     t.index ["user_id"], name: "index_food_stalls_on_user_id"
   end
 

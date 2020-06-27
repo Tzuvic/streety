@@ -30,5 +30,7 @@ Rails.application.routes.draw do
     # get 'users/:id', to: 'users#show', as: 'user'
     # get 'users/:id/edit', to: 'users#edit', as: 'edit_user'
     # patch 'users/:id', to: 'users#update'
+
+    get 'qr_code', to: 'food_stalls#qr_code'
   end
 

@@ -2,7 +2,7 @@ class FoodStallsController < ApplicationController
   require 'json'
   require 'open-uri'
 
-  before_action :set_food_stall, only: [:show, :add_menu, :popular_foods, :edit, :update]
+  before_action :set_food_stall, only: [:show, :add_menu, :popular_foods, :edit, :update, :popular_foods_first, :popular_foods_second]
 
   def new
     @food_stall = FoodStall.new
@@ -40,7 +40,7 @@ class FoodStallsController < ApplicationController
       current_user.update(eval(params[:location2]))
       user_location = [current_user.latitude, current_user.longitude]
       food_stalls = FoodStall.near(user_location, 10)
-    elsif params[:location] != ""
+    elsif params[:location].present?
       food_stalls = FoodStall.near(params[:location], 10)
       current_user.update(address: params[:location])
     elsif current_user.latitude.present? && current_user.longitude.present?
@@ -93,11 +93,11 @@ class FoodStallsController < ApplicationController
     end.uniq
   end
 
-  def add_menu
+  def popular_foods
 
   end
 
-  def popular_foods
+  def qr_code
 
   end
 
