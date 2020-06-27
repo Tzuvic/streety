@@ -7,8 +7,8 @@
         <%= link_to favorite_foodstalls_update_path(food_stall: @food_stall), remote: true do %>
           <i class="<%= favorite_text %> mr-1" style="color: #eb5f42; font-size: 17px;" id='favorite_link'></i>
         <% end %>
-        <%= link_to recommendations_update_path(food_stall: @food_stall), id: 'recommendation_link', remote: true do %>
-          <i class="<%= recommendation_text %>" style="color: #376977; font-size: 17px;"></i>
+        <%= link_to recommendations_update_path(food_stall: @food_stall), remote: true do %>
+          <i class="<%= recommendation_text %>" style="color: #376977; font-size: 17px;" id='recommendation_link'></i>
         <% end %>
         </div>
       </div>
