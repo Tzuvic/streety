@@ -1,49 +1,70 @@
-<div class="container mt-3">
+<div class="container">
   <div class="row">
-    <div class="col-sm-6 offset-sm-3">
+    <div class="col-sm-6 offset-sm-3 pt-2 default-font" style="background-color: #ffd260;" >
 
-      <div class="show text-center">
+
+     <!--  <div class="show text-center mt-2">
         <h1>Profile</h1>
-      </div>
+      </div> -->
 
       <div class="profile" style="display: flex; padding-top: 5px;">
         <div style="height: 180px; width: 200; display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
           <% if @user.photo.attached? %>
-            <%= cl_image_tag @user.photo.key, gravity: :face, crop: :thumb, height: 400, width: 400, class: "avatar-small" %>
+            <%= cl_image_tag @user.photo.key, gravity: :face, crop: :thumb, height: 400, width: 400, style: "border-radius: 50%", class: "avatar-small" %>
           <% else %>
             <%= image_tag "https://res.cloudinary.com/vc334/image/upload/v1589058566/ldy28x5xt9skq4f2gdznnrs8p490.png", height: 150, width: 200, crop: :fill %>
           <% end %>
         </div>
-        <div class="profile-info" style="margin-left: 16px; margin-top: 16px;">
-          <p style="font-weight: 500; margin-bottom: 2px;"><%= @user.first_name %> <%= @user.last_name %></p>
-          <p style="margin-bottom: 2px;">Lives in <span style="font-weight: 500;"><%= @user.current_city %></span></p>
-          <p>From <span style="font-weight: 500;"><%= @user.home_town %></span></p>
+        <div class="profile-info" style="margin-left: 20px; margin-top: 28px;">
+          <p style="font-weight: 500; margin-bottom: 2px; font-size: 20px;"><%= @user.first_name.capitalize %> <%= @user.last_name.first.capitalize %>.</p>
+          <p style="margin-bottom: 2px;"><i class="fas fa-home" style="color: #60656C;"></i> Lives in <span style="font-weight: 500;"><%= @user.current_city %></span></p>
+          <p>&nbsp;<i class="fas fa-map-marker-alt" style="color: #60656C;"></i>&nbsp;<span style="margin-left: 2px;">From</span> <span style="font-weight: 500;"><%= @user.home_town %></span></p>
         </div>
       </div>
 
-      <div class="vouches" style="width: 600px">
-        <% if @user.received_vouches.count == 0 %>
+          </div>
+        </div>
+      </div>
+
+      <div class="container mt-4">
+        <div class="row">
+          <div class="col-sm-6 offset-sm-3">
+
+      <div class="vouches">
+        <h4>VOUCHES (<%= @user.received_vouches.count %>)</h4>
+
+
+
+      <!--   <% if @user.received_vouches.count == 0 %>
           <h4>No vouches yet</h4>
         <% elsif @user.received_vouches.count == 1 %>
           <h4>1 vouch</h4>
         <% else %>
           <h4><%= @user.received_vouches.count %> vouches </h4>
-        <% end %>
-        <div class="vouches">
+        <% end %> -->
+
+        <% if @user.received_vouches.blank? %>
+          Be the first to vouch for <%= @user.first_name %>
+        <% else %>
+          <div class="vouches">
           <%= render 'shared/vouches' %>
         </div>
+        <% end %>
+
+        <%= simple_form_for([ @user, @vouch ] ) do |f| %>
+          <%= f.input :content, as: :text, placeholder: "Write something nice about #{@user.first_name}", label: false %>
+          <%= f.button :submit, 'Vouch', :class => 'secondary-button' %>
+        <% end %>
+
+
       </div>
        <hr>
 
-    <h4>Recommendations (<%= current_user.recommendations.count %>)</h4>
+    <h4><%= @user.first_name.upcase %>'S STALL RECOMMENDATIONS (<%= @user.recommendations.count %>)</h4>
 
     <% if @recommendations_list.present? %>
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-4 offset-sm-4 search_results">
-
             <div class="text-center mt-3">
-            <h1 style="font-size: 18px; font-weight: 500;">Recommendations</h1>
+            <!-- <h1 style="font-size: 18px; font-weight: 500;">Recommendations</h1> -->
             </div>
 
             <% list_counter = 1 %>
@@ -94,18 +115,13 @@
 
               </div>
 
-
-
-
           </div>
           <hr>
           <% end %>
         <% else %>
-          <h1>No food stalls recommended yet.</h1>
+          No food stalls recommended yet.
         <% end %>
-        </div>
-      </div>
-    </div>
+
 
 
 
