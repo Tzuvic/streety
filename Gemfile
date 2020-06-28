@@ -38,6 +38,6 @@ end
   gem 'google-cloud-text_to_speech'
 
 #TZ
-gem 'cloudinary', '~> 1.12.0'
+gem 'cloudinary', '~> 1.15.0'
 gem 'carrierwave'
 gem 'actionview'
