@@ -33,9 +33,12 @@ end
   gem 'pg_search'
   gem 'geocoder'
   gem 'cocoon'
+  gem 'sidekiq'
+  gem 'sidekiq-failures', '~> 1.0'
+  gem 'google-cloud-text_to_speech'
   gem 'jquery-rails'
 
 #TZ
-gem 'cloudinary', '~> 1.12.0'
+gem 'cloudinary', '~> 1.15.0'
 gem 'carrierwave'
 gem 'actionview'

@@ -35,5 +35,11 @@ Rails.application.routes.draw do
     # patch 'users/:id', to: 'users#update'
 
     get 'qr_code', to: 'food_stalls#qr_code'
-  end
 
+    # Sidekiq Web UI, only for admins.
+      require "sidekiq/web"
+      authenticate :user, lambda { |u| u.admin } do
+        mount Sidekiq::Web => '/sidekiq'
+      end
+
+  end
