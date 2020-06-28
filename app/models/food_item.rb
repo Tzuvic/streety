@@ -11,6 +11,7 @@ class FoodItem < ApplicationRecord
 
   def add_sound_bite
     # UpdateUserJob.perform_later(self.id)
-    AddSoundBiteJob.perform_later(self.id)
+    sound_type = 'food'
+    AddSoundBiteJob.perform_later(sound_type, self.id)
   end
 end

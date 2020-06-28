@@ -1,11 +1,16 @@
 class AddSoundBiteJob < ApplicationJob
   queue_as :default
 
-  def perform(item_id)
+  def perform(sound_type, item_id)
     # Do something later
 
-    food_item = FoodItem.find(item_id)
-    word = food_item.name
+    if sound_type == 'food'
+      food_item = FoodItem.find(item_id)
+      word = food_item.food_category.name.singularize + " " + food_item.name
+    elsif sound_type == 'category'
+      food_category = FoodCategory.find(item_id)
+      word = food_category.name
+    end
 
     client = Google::Cloud::TextToSpeech.text_to_speech
     input_text = { text: word }
@@ -30,7 +35,15 @@ class AddSoundBiteJob < ApplicationJob
       # Cloudinary::Uploader.upload(file)
     end
 
-    food_item.audio.attach(io: File.open("#{Rails.root}/tmp/#{random_number}_sound_file.mp3"), filename: 'nothing.mp3', content_type: "audio/mp3")
+    if sound_type == 'food'
+      food_item.audio.attach(io: File.open("#{Rails.root}/tmp/#{random_number}_sound_file.mp3"), filename: 'nothing.mp3', content_type: "audio/mp3")
+
+      food_item.save
+
+    elsif sound_type == 'category'
+      food_category.audio.attach(io: File.open("#{Rails.root}/tmp/#{random_number}_sound_file.mp3"), filename: 'nothing.mp3', content_type: "audio/mp3")
+
+    end
 
     puts "Audio content written to mp3 file"
   end
