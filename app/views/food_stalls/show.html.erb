@@ -5,10 +5,10 @@
         <h1 style="margin-bottom: 4px;"><span style="font-weight: 500;"><%= @food_stall.name %></span> | <%= link_to @food_stall.food_type, food_stall_path %> <% if current_user.admin == true %> [<%= link_to 'Edit', edit_food_stall_path(@food_stall) %>]<% end %></h1>
         <div>
         <%= link_to favorite_foodstalls_update_path(food_stall: @food_stall), remote: true do %>
-          <i class="<%= favorite_text %> mr-1" style="color: #eb5f42; font-size: 17px;" id='favorite_link'></i>
+          <i class="<%= favorite_text %> mr-1" style="color: #eb5f42; font-size: 18px;" id='favorite_link'></i>
         <% end %>
         <%= link_to recommendations_update_path(food_stall: @food_stall), remote: true do %>
-          <i class="<%= recommendation_text %>" style="color: #376977; font-size: 17px;" id='recommendation_link'></i>
+          <i class="<%= recommendation_text %>" style="color: #376977; font-size: 18px;" id='recommendation_link'></i>
         <% end %>
         </div>
       </div>
@@ -18,7 +18,7 @@
           <span>No ratings yet</span>
         <% else %>
           <% @food_stall.rating.times do %>
-          <i class="fas fa-star star-color"></i>
+          <i class="fas fa-star star-color" style="letter-spacing: -3px;"></i>
           <% end %>
 
           <% if @food_stall.reviews.count == 0 %>
@@ -124,7 +124,7 @@
         </div>
 
         <p class="review"><% review.rating.times do %>
-          <i class="fas fa-star star-color" style="font-size: 10px;"></i>
+          <i class="fas fa-star star-color" style="font-size: 10px; letter-spacing: -2px;"></i>
         <% end %></p>
         <p class="review"><%= review.content %></p>
         <hr>

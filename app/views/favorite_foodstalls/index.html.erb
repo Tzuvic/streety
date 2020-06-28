@@ -1,38 +1,30 @@
-<% if @favorites_list.present? %>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-4 offset-sm-4 search_results">
-
-        <div class="text-center mt-3">
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 offset-sm-4 search_results">
+      <div class="text-center mt-3">
         <h1 style="font-size: 18px; font-weight: 500;">Bookmarks</h1>
-        </div>
+      </div>
 
+      <% if @favorites_list.present? %>
         <% list_counter = 1 %>
 
       <% @favorites_list.each do |result| %>
         <div class="search-card mb-3">
           <% if result.photos.attached? %>
             <div class="mb-2 mt-1">
-              <% result.photos.take(4).each do |photo| %>
-                <%= cl_image_tag photo.key, size:"70x70", style:"border-radius: 6px;" %>
-              <% end %>
+            <% result.photos.take(4).each do |photo| %>
+              <%= cl_image_tag photo.key, size:"70x70", style:"border-radius: 6px;" %>
+            <% end %>
             </div>
-        <% end %>
+      <% end %>
 
         <div class="">
-
           <div class="search-flexbox">
-
             <div class="counter-styled">
               <%= list_counter %>.
               <%= link_to result.name, food_stall_path(result) %>
             </div>
-
-
         </div>
-
-
-
               <div style="line-height: 14px;">
                 <% result.rating.times do %>
                   <i class="fas fa-star star-color" style="font-size: 12px;"></i>
@@ -46,24 +38,16 @@
                   <span style="font-size: 14px;"><%= result.reviews.count %> reviews</span>
                 <% end %>
               </div>
-
               <p style="margin: 0px; padding:0px; color: #4E4C54; font-size: 13px;"><%= result.main_category %></p>
               <p style="margin: 0px; padding:0px; color: #4E4C54; font-size:10px;"><%= result.address %></p>
-
-
               <% list_counter += 1 %>
-
           </div>
-
-
-
-
-      </div>
-      <hr>
-      <% end %>
-    <% else %>
-      <h1>You haven't favorited any food stalls yet.</h1>
-    <% end %>
+        </div>
+        <hr>
+        <% end %>
+      <% else %>
+      <h1>You haven't bookmarked any food stalls yet.</h1>
+        <% end %>
     </div>
   </div>
 </div>
