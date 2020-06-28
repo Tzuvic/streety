@@ -1,0 +1,18 @@
+ <% @user.received_vouches.each do |vouch| %>
+        <div class="vouch" style="padding: 10px 10px;  overflow-wrap: break-word;">
+
+          <strong><span style="font-size: 11px;"> <%= vouch.voucher.first_name %></strong></span> <span style="font-size: 11px; color: gray;"><%= time_ago_in_words(vouch.created_at.to_time) %> ago </span><p><%= vouch.content %></p>
+          <div class="vouch-info" style="display: flex; justify-content: space-between;">
+            <div class="likes" style="display: flex; width: 50px; justify-content: space-between; margin-top: 5px;">
+              <i class="far fa-thumbs-down" style="font-size: 15px; color: gray;"></i>
+              <i class="far fa-thumbs-up" style="font-size: 15px; color: gray;"></i>
+            </div>
+            <div class="ctas" style="display: flex; width: 100px; justify-content: space-between; color: gray; font-size: 12px;">
+              <p> Share <p>
+              <p> Reply <p>
+            </div>
+          </div>
+          <hr>
+        </div>
+          <% end %>
+
