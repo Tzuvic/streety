@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'recommendations/update'
+  get 'favorite_foodstalls/update'
+  get 'favorite_foodstalls/index'
   devise_for :users
   resources :users do
     resources :reviews, only: [:create]
