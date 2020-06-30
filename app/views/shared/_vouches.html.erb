@@ -1,17 +1,19 @@
- <% @user.received_vouches.each do |vouch| %>
-        <div class="vouch" style="padding: 10px 10px;  overflow-wrap: break-word;">
-
-          <strong><span style="font-size: 11px;"> <%= vouch.voucher.first_name %></strong></span> <span style="font-size: 11px; color: gray;"><%= time_ago_in_words(vouch.created_at.to_time) %> ago </span><p><%= vouch.content %></p>
-          <div class="vouch-info" style="display: flex; justify-content: space-between;">
-            <div class="likes" style="display: flex; width: 50px; justify-content: space-between; margin-top: 5px;">
-              <i class="far fa-thumbs-down" style="font-size: 15px; color: gray;"></i>
-              <i class="far fa-thumbs-up" style="font-size: 15px; color: gray;"></i>
-            </div>
-            <div class="ctas" style="display: flex; width: 100px; justify-content: space-between; color: gray; font-size: 12px;">
-              <p> Share <p>
-              <p> Reply <p>
-            </div>
-          </div>
-          <hr>
-        </div>
-          <% end %>
+  <% @user.received_vouches.each do |vouch| %>
+    <div class="d-flex mb-3 default-font">
+      <div>
+    <% if vouch.voucher.photo.attached? %>
+      <%= link_to user_path(vouch.voucher) do %>
+        <%= cl_image_tag vouch.voucher.photo.key, gravity: :face, crop: :thumb, height: 400, width: 400, class: "avatar", style:"margin-right: 8px;" %>
+      <% end %>
+    <% else %>
+      <%= link_to user_path(vouch.voucher) do %>
+        <%= image_tag "https://res.cloudinary.com/vc334/image/upload/v1589058566/ldy28x5xt9skq4f2gdznnrs8p490.png", class: "avatar", style:"margin-right: 8px;" %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="default-font">
+    <span style="font-weight: 500;"><%= vouch.voucher.first_name %> <%= vouch.voucher.last_name.first.upcase %>. says</span>
+"<%= vouch.content %>"
+</div>
+</div>
+  <% end %>

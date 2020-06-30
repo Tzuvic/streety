@@ -29,10 +29,10 @@ class FoodStallsController < ApplicationController
     end
   end
 
-
-
   def show
     @directions_url = "https://www.google.com/maps/dir/?api=1&destination=#{@food_stall.latitude},#{@food_stall.longitude}"
+    @favorite_exists = FavoriteFoodstall.where(food_stall: @food_stall, user: current_user) == [] ? false : true
+    @recommendation_exists = Recommendation.where(food_stall: @food_stall, user: current_user) == [] ? false : true
   end
 
   def search_results
@@ -59,6 +59,11 @@ class FoodStallsController < ApplicationController
     @food_stalls = @search_results.geocoded # returns stalls with coordinates
     @markers = @food_stalls.map do |food_stall|
       {
+        properties: {
+      'marker-color': '#3bb2d0',
+      'marker-size': 'large',
+      'marker-symbol': 'rocket'
+    },
         lat: food_stall.latitude,
         lng: food_stall.longitude,
         infoWindow: render_to_string(partial: "/food_stalls/map_box", locals: { food_stall: food_stall })

@@ -7,11 +7,11 @@
     <% end %>
 
     <div class="navbar-menus">
-<div class="d-flex align-items-center">
-<%= link_to search_path do %>
-  <i class="fas fa-search navbar-mg" data="turbolinks: false"></i>
-<% end %>
-</div>
+      <div class="d-flex align-items-center">
+        <%= link_to search_path do %>
+          <i class="fas fa-search navbar-mg" data="turbolinks: false"></i>
+        <% end %>
+    </div>
 
       <% if user_signed_in? %>
           <% if current_user.photo.attached? %>
@@ -20,21 +20,36 @@
             <%= image_tag "https://res.cloudinary.com/vc334/image/upload/v1589058566/ldy28x5xt9skq4f2gdznnrs8p490.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>
 
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="margin-right: 16px;">
-            <%= link_to 'My profile', user_path(current_user), class: "dropdown-item" %>
-            <%= link_to 'Add a stall', new_food_stall_path, class: "dropdown-item" %>
-            <%= link_to 'Scan QR code', qr_code_path, class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="margin-right: 16px; border-radius: 2px;">
+
+            <%= link_to user_path(current_user), class: "dropdown-item" do %>
+              <p style="font-family: 'roboto', sans-serif; color: #376977; font-weight: 400; font-size: 14px; margin-bottom: 0px; padding-bottom: 0px;margin-right: 2px;"><i class="far fa-user-circle"></i>&nbsp;Profile</p>
+            <% end %>
+            <!-- <hr style="margin: 0px 8px;"> -->
+
+            <%= link_to favorite_foodstalls_index_path, class: "dropdown-item" do %>
+              <p style="font-family: 'roboto', sans-serif; color: #376977; font-weight: 400; font-size: 14px; margin-bottom: 0px; padding-bottom: 0px;"><i class="far fa-bookmark"></i>&nbsp;&nbsp;Bookmarks</p>
+            <% end %>
+            <!-- <hr style="margin: 0px 8px;"> -->
+
+            <%= link_to new_food_stall_path, class: "dropdown-item" do %>
+              <p style="font-family: 'roboto', sans-serif; color: #376977; font-weight: 400; font-size: 14px; margin-bottom: 0px; padding-bottom: 0px;"><i class="far fa-plus-square"></i>&nbsp;&nbsp;Add a Stall</p>
+            <% end %>
+            <!-- <hr style="margin: 0px 8px;"> -->
+
+            <%= link_to qr_code_path, class: "dropdown-item" do %>
+              <p style="font-family: 'roboto', sans-serif; color: #376977; font-weight: 400; font-size: 14px; margin-bottom: 0px; padding-bottom: 0px;"><i class="fas fa-qrcode"></i>&nbsp;&nbsp;Scan QR Code</p>
+            <% end %>
+            <hr style="margin: 0px 8px;">
+
+            <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
+              <p style="font-family: 'roboto', sans-serif; color: #376977; font-weight: 400; font-size: 14px; margin-bottom: 0px; padding-bottom: 0px;"><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Log Out</p>
+            <% end %>
           </div>
 
       <% else %>
-
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-
       <% end %>
 
-
     </div>
-
   </div>
-</div>

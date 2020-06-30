@@ -5,6 +5,7 @@ class FoodStall < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
   has_many :menus
   has_many :food_items, through: :menus
+  # has_many :users, through: :favorite_foodstall
   has_many :reviews, dependent: :destroy
   has_many_attached :photos
 

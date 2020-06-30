@@ -11,7 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 
-ActiveRecord::Schema.define(version: 2020_06_21_205436) do
+ActiveRecord::Schema.define(version: 2020_06_27_224023) do
 
 
   # These are extensions that must be enabled in order to support this database
@@ -36,6 +36,15 @@ ActiveRecord::Schema.define(version: 2020_06_21_205436) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "favorite_foodstalls", force: :cascade do |t|
+    t.bigint "food_stall_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["food_stall_id"], name: "index_favorite_foodstalls_on_food_stall_id"
+    t.index ["user_id"], name: "index_favorite_foodstalls_on_user_id"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -105,6 +114,15 @@ ActiveRecord::Schema.define(version: 2020_06_21_205436) do
     t.index ["food_stall_id"], name: "index_menus_on_food_stall_id"
   end
 
+  create_table "recommendations", force: :cascade do |t|
+    t.bigint "food_stall_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["food_stall_id"], name: "index_recommendations_on_food_stall_id"
+    t.index ["user_id"], name: "index_recommendations_on_user_id"
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.text "content"
     t.integer "rating"
@@ -131,6 +149,8 @@ ActiveRecord::Schema.define(version: 2020_06_21_205436) do
     t.float "latitude"
     t.float "longitude"
     t.string "address"
+    t.boolean "admin", default: false, null: false
+    t.text "about"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -146,6 +166,8 @@ ActiveRecord::Schema.define(version: 2020_06_21_205436) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "favorite_foodstalls", "food_stalls"
+  add_foreign_key "favorite_foodstalls", "users"
   add_foreign_key "favorites", "food_stalls"
   add_foreign_key "favorites", "users"
   add_foreign_key "food_items", "food_categories"
@@ -155,6 +177,8 @@ ActiveRecord::Schema.define(version: 2020_06_21_205436) do
   add_foreign_key "lists", "users"
   add_foreign_key "menus", "food_items"
   add_foreign_key "menus", "food_stalls"
+  add_foreign_key "recommendations", "food_stalls"
+  add_foreign_key "recommendations", "users"
   add_foreign_key "reviews", "food_stalls"
   add_foreign_key "reviews", "users"
   add_foreign_key "vouches", "users", column: "vouchee_id"
