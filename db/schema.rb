@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2020_06_27_224023) do
-
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,16 +93,6 @@ ActiveRecord::Schema.define(version: 2020_06_27_224023) do
     t.index ["user_id"], name: "index_food_stalls_on_user_id"
   end
 
-  create_table "lists", force: :cascade do |t|
-    t.string "list_name"
-    t.bigint "user_id", null: false
-    t.bigint "food_stall_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["food_stall_id"], name: "index_lists_on_food_stall_id"
-    t.index ["user_id"], name: "index_lists_on_user_id"
-  end
-
   create_table "menus", force: :cascade do |t|
     t.bigint "food_stall_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -173,8 +161,6 @@ ActiveRecord::Schema.define(version: 2020_06_27_224023) do
   add_foreign_key "food_items", "food_categories"
   add_foreign_key "food_items", "users"
   add_foreign_key "food_stalls", "users"
-  add_foreign_key "lists", "food_stalls"
-  add_foreign_key "lists", "users"
   add_foreign_key "menus", "food_items"
   add_foreign_key "menus", "food_stalls"
   add_foreign_key "recommendations", "food_stalls"
