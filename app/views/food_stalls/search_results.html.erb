@@ -46,6 +46,9 @@
             <div class="counter-styled">
               <%= list_counter %>.
               <%= link_to result.name, food_stall_path(result) %>
+              <% if result.reviewed_by_local?  %>
+                <span class="badge badge-success">Reviewed by Local</span>
+              <% end %>
             </div>
 
             <% if @distances_array.present? %>
