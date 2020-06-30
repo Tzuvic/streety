@@ -17,12 +17,22 @@
   font-size: 14px;
 }
 
-.home-search-button, .home-search-button:visited {
+ .home-search-button:visited {
   border-radius: 4px;
   padding: 8px 50px;
   // background-color: #EB6043;
   background-color: #fd4e4e;
-  color: white;
+  color: white !important;
+  box-shadow: 1px 1px 6px rgba(10, 10, 10, 0.3);
+  font-size: 18px;
+}
+
+.home-search-button {
+  border-radius: 4px;
+  padding: 8px 50px;
+  // background-color: #EB6043;
+  background-color: #fd4e4e;
+  color: white !important;
   box-shadow: 1px 1px 6px rgba(10, 10, 10, 0.3);
   font-size: 18px;
 }
