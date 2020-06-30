@@ -6,7 +6,7 @@ class AddSoundBiteJob < ApplicationJob
 
     if sound_type == 'food'
       food_item = FoodItem.find(item_id)
-      word = food_item.food_category.name.singularize + " " + food_item.name
+      word = food_item.food_category.name.singularize + " " + food_item.name.singularize
     elsif sound_type == 'category'
       food_category = FoodCategory.find(item_id)
       word = food_category.name

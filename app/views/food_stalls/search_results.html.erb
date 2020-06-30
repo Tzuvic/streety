@@ -59,19 +59,19 @@
 
               <div style="line-height: 14px;">
                 <% result.rating.times do %>
-                  <i class="fas fa-star star-color" style="font-size: 12px;"></i>
+                  <i class="fas fa-star star-color" style="font-size: 12px; letter-spacing: -3px;"></i>
                 <% end %>
 
                 <% if result.reviews.count == 0 %>
                   <span style="font-size: 14px; color: #484848; ">No reviews yet</span>
                 <% elsif result.reviews.count == 1 %>
-                  <span style="font-size: 14px;">1 review</span>
+                  <span style="font-size: 14px;">&nbsp;1 review</span>
                 <% else %>
-                  <span style="font-size: 14px;"><%= result.reviews.count %> reviews</span>
+                  <span style="font-size: 14px;">&nbsp;<%= result.reviews.count %> reviews</span>
                 <% end %>
               </div>
 
-              <p style="margin: 0px; padding:0px; color: #4E4C54; font-size: 13px;"><%= result.main_category %></p>
+              <p style="margin: 0px; padding:0px; color: #4E4C54; font-size: 13px;"><%= result.main_category.capitalize %></p>
               <p style="margin: 0px; padding:0px; color: #4E4C54; font-size:10px;"><%= result.address %></p>
 
 
@@ -86,7 +86,16 @@
       <hr>
       <% end %>
     <% else %>
-      <h1>No results found</h1>
+    <div class="container menu pt-3">
+      <div class="row">
+        <div class="col-sm-6 offset-sm-3">
+          <div class="show text-center">
+          <h1>No results found :(</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <% end %>
     </div>
   </div>

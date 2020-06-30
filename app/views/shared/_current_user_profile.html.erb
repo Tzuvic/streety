@@ -27,7 +27,7 @@
           <% end %>
         </div>
       </div>
-
+       <div class="mb-4"><span style="font-family: 'roboto', sans-serif; font-weight: 500">About: </span><span>"<%= @user.about %>"</div>
           </div>
         </div>
       </div>
@@ -59,7 +59,7 @@
 
         <%= simple_form_for([ @user, @vouch ] ) do |f| %>
           <%= f.input :content, as: :text, placeholder: "Write something nice about #{@user.first_name}", label: false %>
-          <%= f.button :submit, 'Vouch', :class => 'secondary-button' %>
+          <%= f.button :submit, "Vouch", :class => 'secondary-button' %>
         <% end %>
 
 
@@ -125,8 +125,9 @@
           <hr>
           <% end %>
         <% else %>
-          No food stalls recommended yet.
+          <span class="default-font mt-2">No food stalls recommended yet.</span>
         <% end %>
+        <hr>
 
 
 
@@ -155,7 +156,7 @@
     <a href="#"><p style="text-align: center; font-size: 13px; padding-top: 20px;">See All</p></a>
     <hr> -->
 
-  <div>
+  <div class="mt-3">
     <%= link_to 'Edit Profile', edit_user_path(@user), class:"btn search-button-styled form-control", style: "color: white;" %>
   </div>
 

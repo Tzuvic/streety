@@ -1,25 +1,30 @@
 <div class="map-info-box">
   <div class="d-flex justify-content-between">
-      <div>
-        <strong><%= food_stall.name %></strong>
-      </div>
-      <div>
-        0.3 mi
+      <div class="mb-0">
+        <strong><%= food_stall.name.capitalize %></strong>
       </div>
   </div>
 
-  <div>
-    <% food_stall.rating.times do %>
-      ⭐️
-    <% end %>
-    <% if food_stall.reviews.count == 1 %>
-      <span>1 review</span>
+  <h2 style="margin-bottom: 4px;">
+    <% if food_stall.rating.nil? %>
+      <span>No ratings yet</span>
     <% else %>
-      <span><%= food_stall.reviews.count %> reviews</span>
+      <% food_stall.rating.times do %>
+      <i class="fas fa-star star-color" style="font-size: 14px; letter-spacing: -3px;"></i>
+      <% end %>
+
+      <% if food_stall.reviews.count == 0 %>
+        <span style="font-size color: #484848; font-size: 14px;">No reviews yet</span>
+      <% elsif food_stall.reviews.count == 1 %>
+        <span style="font-size: 14px;">&nbsp;1 review</span>
+      <% else %>
+        <span style="font-size: 14px;">&nbsp; <%= food_stall.reviews.count %> reviews</span>
+      <% end %>
+
     <% end %>
-  </div>
+  </h2>
 
   <div>
-    <%= food_stall.main_category %>
+    <span style="font-size: 13px; font-family: 'roboto', sans-serif;"><%= food_stall.main_category.capitalize %></span>
   </div>
 </div>
