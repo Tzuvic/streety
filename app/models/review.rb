@@ -4,7 +4,6 @@ class Review < ApplicationRecord
   validates :content, presence: true
   validates :rating, presence: true
 
-
   def created_by_local?
     user.distance_to(food_stall) < 50
   end

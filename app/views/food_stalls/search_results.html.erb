@@ -46,9 +46,7 @@
             <div class="counter-styled">
               <%= list_counter %>.
               <%= link_to result.name, food_stall_path(result) %>
-              <% if result.reviewed_by_local?  %>
-                <span class="badge badge-success">Reviewed by Local</span>
-              <% end %>
+
             </div>
 
             <% if @distances_array.present? %>
@@ -59,7 +57,7 @@
         </div>
 
 
-
+            <div class="d-flex">
               <div style="line-height: 14px;">
                 <% result.rating.times do %>
                   <i class="fas fa-star star-color" style="font-size: 12px; letter-spacing: -3px;"></i>
@@ -72,7 +70,16 @@
                 <% else %>
                   <span style="font-size: 14px;">&nbsp;<%= result.reviews.count %> reviews</span>
                 <% end %>
+
+                <% if result.reviewed_by_local?  %>
+                  <span class="reviewed-local-badge">Reviewed by a local</span>
+                <% end %>
               </div>
+
+
+
+            </div>
+
 
               <p style="margin: 0px; padding:0px; color: #4E4C54; font-size: 13px;"><%= result.main_category.capitalize %></p>
               <p style="margin: 0px; padding:0px; color: #4E4C54; font-size:10px;"><%= result.address %></p>
