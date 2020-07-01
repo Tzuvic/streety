@@ -1,5 +1,5 @@
 meta_product_name: "Streety"
 meta_title: "Streety - Find Delicious Street Food Near You"
 meta_description: "Streety Connects You With Authentic Street Food Vendors"
-meta_image: "facebook-cover.jpeg" # should exist in `app/assets/images/`
+meta_image: "https://res.cloudinary.com/rodrigosan86/image/upload/v1593563908/photo-1568257450982-f9c3c8967b94_fpy4ry.jpg" # should exist in `app/assets/images/`
 twitter_account: "@streety"   # required for Twitter Cards
