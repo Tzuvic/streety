@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "streety-279513",
+  "private_key_id": "5d3c3569e20a3418c637a72a1c3800d71b74674c",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDvYMXF651sdrSu\nnXRcMAbcw6H7uNGW2Q5jMO+PHC1aJDbbTMDd6m/melat3JhFAx/JPjzI1Md8vRvq\nntbLj7RliVlz6aH2SafYQ+7aKLAPZV8qZlZQNFsqYVcSW39tIhrDf4lXcIcysmQL\nBvwVyCa82Zbi7O7aZZHGu/GN81QYSzh6fmuNgmwCJOQBve9F0frzNGuotNjEFD7C\n9bLQgswMGg0r1gciVvoNyNynkQ2Q8tvZwJrd7wKHLE4IVq0wKEZ+3Wa35cjTblmc\n27n5ladS7W5utbWa4duGd+eSBMkoKTl3WrHUnR8ZPciIscBm1j3yyZvRWAXjuhez\n/7MYdunlAgMBAAECggEAEX5LoGB3lgBBdAFNtO74PBSP4eAVG6ZWcX6XWH4BUnUT\nDTOuud5IDy/MOyhueEdM1ggWU8GOUoSqEEX2AdTz+feaRz5A98lU2sPG0L/oczeV\nR3lIatQTVXrc7MUtqsFd81YpU0UwnCPX68u24GCgHsJH+eLBZx8aaCDpUNZXbu7s\nIyElEqZR5JAn8Z+dXrwpQUZKe4v03/2M7/vhF0Ik2PqMjf/QbZ6G5/DDUNxvUC7B\nLabqN/oRnpWshJBfndeiQqI3MSnLdWz3PKaphehpkqxLXbA3MogelTtFEbV9vqbf\nzUs0fWs/c88CNhUMBcP1rWn1uEIC1SpOkZjhuSq4gQKBgQD4obK/kv5/AR49NfvC\nNG432RXsX484SQUQA8u+1S/p3PQWKKC/t9/jK4Fxam1k5+Yxl8TJYdea9efPQCpr\nfyP9cycQOPsEXMc+MePfw+kglf/u9XQuWaxfcx/vOseE8f/JVAe/kj1tAbj0ZRT1\nFal2oBD2FoiN029Eb+KNgs78HwKBgQD2eN6eYIjQfBH0z+ptA3tIFd4C5L2NBucm\nnHu2hbLgvAJRx9In6M+Buj5Dz67EfmQceyMF/5F5oo1zr9KEx7hy+TpfuQUs1/v0\nIhm7UcsOsqLpjyh3JLzWTUIJ5FvMit5ClnoxFeppKY+f+5lCwcgaxw1u4FAEOTYZ\nnTrnCwNZewKBgCxYYtJKfHvYjjUqsLmlslbhsEhVjuziETYXBzsFOSOEFkDxhCJN\nwG/7LX42FkbeGa+UuzOT8OmhnHPZpPdBWQD2jewVzaesiJjuOw+JGMaIGnrbappt\nwhHQLcz0deufYhjdlPg1NCGCIiPs93zzHSOcTwolYLuzD3BsaEMHJrXPAoGAVOdu\nSMCYYLlctiipaMQ6Q6rEv9psMZifJ/3f4BBOfnxFkEZ1bqoUUWwG5vU0Dxw7AFSq\ny/Yt9ui4MZHvwy3JrFGOeksSLVB5yq+0jYKvoHCJDkvydJiDNI+IoD+6H8v2pJmR\nnjceePuILmRNd2GpvQ+04O0Eo2/R4yD2mYCBtuECgYB6jmnekIioSGEwo6L4Wnog\nnHCAFXQqTlfxI5A6bZweYaykxs2DJOrdqZoYoynUwW2Js1Hvq3cek7IPcQ1XRwkK\n7N85xzededjsUwXHP6G+ZngcojLxwgmNpbNjeinNPL+uxQRsXBO5jn8npljM33le\n2wuvDM2+BwPevavDkLndng==\n-----END PRIVATE KEY-----\n",
+  "client_email": "streety-tts@streety-279513.iam.gserviceaccount.com",
+  "client_id": "115050103839448816312",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/streety-tts%40streety-279513.iam.gserviceaccount.com"
+}
