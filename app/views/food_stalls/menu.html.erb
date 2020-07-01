@@ -18,7 +18,7 @@
           <div style="background-color: white; border-radius: 8px;">
         <div>
 
-        <h2 style="font-size: 16px;" id="<%= food_category.name %>"><%= food_category.name.upcase %>   <i class="las la-volume-up" style="font-size: 16px; " onclick='playAudio("https://res.cloudinary.com/rodrigosan86/raw/upload/v1593359858/<%= food_category.audio.key %>.mp3")'></i></h2>
+        <h2 style="font-size: 16px;" id="<%= food_category.name %>"><%= food_category.name.upcase %>   <i class="las la-volume-up" style="font-size: 16px; " onclick='playAudio("https://res.cloudinary.com/rodrigosan86/video/upload/v1593557474/<%= food_category.audio.key %>.mp3")'></i></h2>
 
       </div>
         <%= image_tag food_category.image_url, width: "100%", style: "object-fit: cover; border-radius: 4px;", class: "mb-2" %>
@@ -28,7 +28,7 @@
           <% if food_item.food_category == food_category %>
 
             <div style="display: flex; justify-content: space-between;align-items: flex-start;">
-            <h2><%= food_item.food_category.name.singularize.upcase %> <%= food_item.name.singularize.upcase %>  <i class="las la-volume-up" style="font-size: 16px;" onclick='playAudio("https://res.cloudinary.com/rodrigosan86/raw/upload/v1593359858/<%= food_item.audio.key %>.mp3")'></i></h2>
+            <h2><%= food_item.food_category.name.singularize.upcase %> <%= food_item.name.singularize.upcase %>  <i class="las la-volume-up" style="font-size: 16px;" onclick='playAudio("https://res.cloudinary.com/rodrigosan86/video/upload/v1593557474/<%= food_item.audio.key %>.mp3")'></i></h2>
             <% unless @food_stall.popular_foods.nil? %>
               <% if @food_stall.popular_foods.key?(food_item.id) %>
               <h2 style="font-size: 12px;"> <i class="fas fa-thumbs-up" style="color: #fe4e4e;"></i> <%= @food_stall.popular_foods[food_item.id] %></h2>

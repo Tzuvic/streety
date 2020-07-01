@@ -2,8 +2,8 @@
   <div class="row">
     <div class="col-sm-6 offset-sm-3">
       <%= simple_form_for [@food_stall, @menu] do |f| %>
-      <%= f.label @food_stall.food_type%>
-      <%= f.association :food_item, collection: FoodItem.all %>
+      <%= f.label 'Add all the dishes to the menu.' %>
+      <%= f.association :food_item, collection: FoodItem.all, label_method: lambda { |item| "#{item.food_category.name.capitalize} - #{item.name.capitalize}" } %>
       <%= f.button :submit %>
       <% end %>
     </div>
