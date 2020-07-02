@@ -56,12 +56,12 @@
 
               <div class="carousel-inner rounded mb-3" style="width:100%; height: 300px !important;">
                 <div class="carousel-item active">
-                  <%= cl_image_tag @food_stall.photos.first.key,  class: "d-block w-100", alt: "first slide" %>
+                  <%= cl_image_tag @food_stall.photos.first.key, width: 400, height: 290, crop: :fill,  class: "", alt: "first slide" %>
                 </div>
 
                 <% @food_stall.photos.drop(1).each do |photo| %>
                   <div class="carousel-item">
-                    <%= cl_image_tag photo.key,  class: "d-block w-100", alt: "a slide" %>
+                    <%= cl_image_tag photo.key, width: 400, height: 290, crop: :fill,  class: "", alt: "a slide" %>
                   </div>
                 <% end %>
               </div>
