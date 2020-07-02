@@ -3,7 +3,7 @@
     <div class="col-sm-6 offset-sm-3">
       <%= simple_form_for [@food_stall, @menu] do |f| %>
       <%= f.label 'Add all the dishes to the menu.' %>
-      <%= f.association :food_item, collection: FoodItem.all, label_method: lambda { |item| "#{item.food_category.name.capitalize} - #{item.name.capitalize}" } %>
+      <%= f.association :food_item, collection: FoodItem.all, label_method: lambda { |item| "#{item.food_category.name} - #{item.name}" } %>
       <%= f.button :submit %>
       <% end %>
     </div>
