@@ -109,7 +109,7 @@ class FoodStallsController < ApplicationController
   private
 
   def food_stall_params
-    params.require(:food_stall).permit(:name, :description, :food_type, :schedule, :vegetarian, :address, :phone_number, :rating, photos: [])
+    params.require(:food_stall).permit(:name, :description, :food_type, :main_category, :schedule, :vegetarian, :address, :phone_number, :rating, photos: [])
   end
 
   def set_food_stall

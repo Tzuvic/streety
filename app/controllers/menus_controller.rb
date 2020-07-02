@@ -5,11 +5,13 @@ class MenusController < ApplicationController
   end
 
   def create
-    @menu = Menu.new(menu_params)
-    @food_stall = FoodStall.find(params[:food_stall_id])
-    @menu.food_stall = @food_stall
-    @menu.food_item_id = menu_params[:food_item_id]
-    @menu.save
+    params[:menu]["food_item_id"].reject(&:empty?).each do |item_id|
+      @menu = Menu.new
+      @food_stall = FoodStall.find(params[:food_stall_id])
+      @menu.food_stall = @food_stall
+      @menu.food_item_id = item_id
+      @menu.save
+    end
 
     redirect_to food_stall_path(@food_stall)
   end
