@@ -51,7 +51,7 @@ class FoodStallsController < ApplicationController
     end
 
     if params[:query] != ""
-      @search_results = food_stalls.search_by_food_type(params[:query])
+      @search_results = food_stalls.search_by_food_type(params[:query].capitalize)
     else
       @search_results = food_stalls
     end
