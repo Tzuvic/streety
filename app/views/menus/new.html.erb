@@ -4,7 +4,9 @@
       <%= simple_form_for [@food_stall, @menu] do |f| %>
       <%= f.label 'Add all the dishes to the menu.' %>
       <%= f.association :food_item, collection: FoodItem.all, input_html: { multiple: true, class: 'search-fields', size: '15' },label_method: lambda { |item| "#{item.food_category.name.capitalize} - #{item.name.capitalize}" }, size: '200' %>
-      <%= f.button :submit %>
+      <div class="mb-5">
+      <%= f.button :submit, "Create menu", class: "btn search-button-styled mt-2 form-control", style: "width: 100%;" %>
+      </div>
       <% end %>
     </div>
   </div>
