@@ -4,7 +4,7 @@
       <%= simple_form_for [@food_stall] do |f| %>
         <%= f.input :name, label: 'Food Stall Name', input_html: { class: 'search-fields' }  %>
         <%= f.input :description, input_html: { class: 'search-fields' } %>
-        <%= f.input :food_type, label: 'Main Food Category', input_html: { class: 'search-fields' }, collection: ["Tacos", "Tortas", "Sopas", "Buritos", "Tamales", "Gorditas", "Quesadillas", "Enchiladas", "Chilaquiles", "Postres", "Botanas"] %>
+        <%= f.input :main_category, label: 'Main Food Category', input_html: { class: 'search-fields' }, collection: ["Tacos", "Tortas", "Sopas", "Buritos", "Tamales", "Gorditas", "Quesadillas", "Enchiladas", "Chilaquiles", "Postres", "Botanas", "Tostadas"] %>
         <%= f.input :vegetarian, input_html: { class: 'search-fields' }, label: 'Has vegetarian options'%>
         <%= f.input :address, input_html: { class: 'search-fields' } %>
         <%= f.input :phone_number, input_html: { class: 'search-fields' } %>
