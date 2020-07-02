@@ -36,6 +36,7 @@ class FoodStallsController < ApplicationController
   end
 
   def search_results
+    raise
     if params[:location2].present?
       current_user.update(eval(params[:location2]))
       user_location = [current_user.latitude, current_user.longitude]
@@ -51,7 +52,7 @@ class FoodStallsController < ApplicationController
     end
 
     if params[:query] != ""
-      @search_results = food_stalls.search_by_food_type(params[:query].capitalize)
+      @search_results = food_stalls.search_by_food_type(params[:query])
     else
       @search_results = food_stalls
     end
