@@ -71,7 +71,7 @@
                   <span style="font-size: 14px;">&nbsp;<%= result.reviews.count %> reviews</span>
                 <% end %>
 
-                <% if result.reviewed_by_local?  %>
+                <% if result.local %>
                   <span class="reviewed-local-badge">Reviewed by a local</span>
                 <% end %>
               </div>
