@@ -29,7 +29,7 @@
         <% list_counter = 1 %>
         <% distance_value = 0 %>
 
-      <% @search_results.each do |result| %>
+      <% @search_results.take(9).each do |result| %>
         <div class="search-card mb-3">
           <% if result.photos.attached? %>
             <div class="mb-2 mt-1">
