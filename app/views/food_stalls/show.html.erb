@@ -120,12 +120,7 @@
             <% else %>
               <p class="review">Anonymous user</p>
             <% end %>
-<!--
-            <% if review.user.distance_to(@food_stall) < 50 %>
-              <span class="reviewed-local-badge ml-2">Local</span>
-            <% end %> -->
 
-    <!-- </div> -->
             <p style="margin-bottom: 0px;">Vouches: <%= review.user.received_vouches.count %></p>
 
           </div>
