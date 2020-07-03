@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @vouch = Vouch.new
 
-    recommendations = current_user.recommendations
+    recommendations = @user.recommendations
     @recommendations_list = []
     recommendations.each do |recommendation|
       @recommendations_list << recommendation.food_stall
