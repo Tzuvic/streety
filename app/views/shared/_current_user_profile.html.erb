@@ -41,28 +41,22 @@
       <div class="vouches">
         <h4>VOUCHES (<%= @user.received_vouches.count %>)</h4>
 
-
-
-      <!--   <% if @user.received_vouches.count == 0 %>
-          <h4>No vouches yet</h4>
-        <% elsif @user.received_vouches.count == 1 %>
-          <h4>1 vouch</h4>
-        <% else %>
-          <h4><%= @user.received_vouches.count %> vouches </h4>
-        <% end %> -->
-
-        <% if @user.received_vouches.blank? %>
+        <% if @user.received_vouches.blank? && current_user != @user %>
           Be the first to vouch for <%= @user.first_name %>
           <div class="mb-1"></div>
+        <% elsif @user.received_vouches.blank? && current_user == @user %>
+          <span class="default-font mt-2">No vouches yet.</span>
         <% else %>
           <div class="vouches">
           <%= render 'shared/vouches' %>
         </div>
         <% end %>
 
-        <%= simple_form_for([ @user, @vouch ] ) do |f| %>
-          <%= f.input :content, as: :text, placeholder: "Write something nice about #{@user.first_name}", label: false %>
-          <%= f.button :submit, "Vouch", :class => 'secondary-button' %>
+        <% if current_user != @user %>
+          <%= simple_form_for([ @user, @vouch ] ) do |f| %>
+            <%= f.input :content, as: :text, placeholder: "Write something nice about #{@user.first_name}", label: false %>
+            <%= f.button :submit, "Vouch", :class => 'secondary-button' %>
+          <% end %>
         <% end %>
 
 
@@ -73,7 +67,6 @@
 
     <% if @recommendations_list.present? %>
             <div class="text-center mt-3">
-            <!-- <h1 style="font-size: 18px; font-weight: 500;">Recommendations</h1> -->
             </div>
 
             <% list_counter = 1 %>
