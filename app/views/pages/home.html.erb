@@ -4,14 +4,19 @@
       <div id="logo-homepage">
         Streety
       </div>
-      <%= image_tag("food_cart2.png", size: "100x100", style: "margin-right: 8px; margin-top: 10px;")%>
+      <%= image_tag("food_cart2.png", size: "100x100", style: "margin-right: 8px; margin-top: 10px;", class: "cart")%>
       <br><br>
       <h1 style="color: #376977;">Find delicious and authentic street food nearby</h1>
       <br>
       <%= link_to "Get Started", search_path, class: "home-search-button" %>
     </div>
   </div>
+
+  <%= javascript_pack_tag 'home' %>
+
 </body>
+
+
 
 
 
