@@ -175,19 +175,33 @@
 
 .cart {
   position: relative;
-  animation-name: cart-animation;
-  animation-duration: 4s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
+  // animation-name: cart-animation;
+  animation: cart-rotate 1.2s .5s forwards 1 cubic-bezier(.55,-0.04,.98,.53),
+              cart-first-animation 1s 1.7s forwards 1 linear, cart-animation 1s 2.7s forwards 1 linear;
+  // animation-delay: 1.5s;
+  transform-origin: 15% 90%;
+  // animation-timing-function: cubic-bezier(0,.77,1,.28);
+  // animation-iteration-count: infinite;
   // display: inline-block;
   // transition: transform 6s linear;
-  animation-fill-mode: both;
-  // animation-delay: 1s;
+  // animation-fill-mode: forwards;
+
+}
+
+@keyframes cart-first-animation {
+  from{ transform: translateX(0px) }
+  to{ transform: translateX(260px)}
 }
 
 @keyframes cart-animation {
-  from{ transform: translateX(-260px) }
-  to{ transform: translateX(260px)}
+  from{ transform: translateX(-240px) }
+  to{ transform: translateX(0px)}
+}
+
+@keyframes cart-rotate {
+  0% { transform: rotate(0.0deg) }
+  50% { transform: rotate(-15deg) }
+  100% { transform: rotate(0deg)}
 }
 
 // @keyframes cart-animation {
